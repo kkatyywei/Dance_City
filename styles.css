@@ -1,0 +1,1158 @@
+/* Общие стили для всей страницы */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Comfortaa', cursive;
+    display: grid;
+    grid-template-rows: auto auto auto auto auto;
+    row-gap: 0;
+    min-height: 100vh;
+    background-image: url('images/logo1.png');
+    background-repeat: no-repeat;
+    background-position: 85% 50%;
+    background-size: 52% auto;
+    background-attachment: fixed;
+    position: relative;
+}
+
+/* Стили шапки сайта */
+header {
+    grid-row: 1;
+    background-color: #7C3882;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+/* Содержимое шапки */
+.header-content {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+/* Навигационные ссылки */
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.nav-links a:hover {
+    color: #FCD7FF;
+}
+
+/* Иконки социальных сетей в шапке */
+.social-icons {
+    display: flex;
+    gap: 1.3rem;
+    margin-right: 2.8rem;
+    align-items: center;
+}
+
+.social-icons img {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+.phone-number {
+    color: white;
+    text-decoration: none;
+    font-family: 'Comfortaa', cursive;
+    font-size: 1.1rem;
+    margin-right: 2rem;
+    transition: color 0.3s;
+}
+
+.phone-number:hover {
+    color: #FCD7FF;
+}
+
+/* Стили заголовка */
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5em;
+    font-weight: 400;
+    color: #7C3882;
+    position: relative;
+    text-shadow: 4px -4px 0px rgba(123, 56, 130, 0.2);
+    line-height: 1.5;
+    letter-spacing: 1px;
+    margin-left: 2.5%;
+    max-width: 600px;
+}
+
+h1 span {
+    font-family: 'Comfortaa', cursive;
+    font-size: 2.1em;
+    font-weight: 310;
+    color: #7C3882;
+    text-shadow: 5px -5px 0px rgba(123, 56, 130, 0.2);
+    letter-spacing: 0.125rem;
+}
+
+/* Основной контент */
+.main-section {
+    grid-row: 2;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    margin-top: 0;
+    padding-bottom: 2rem;
+}
+
+.main-content {
+    position: relative;
+    text-align: left;
+    margin-left: 1.5rem;
+    padding-top: 2.5rem;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+/* Главное изображение */
+.main-image {
+    position: absolute;
+    right: 0;
+    top: 40%;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    z-index: 0;
+}
+
+/* Блок с текстом на главной */
+.text-block {
+    position: absolute;
+    top: 60%;
+    left: 3.125rem;
+    transform: translateY(-50%);
+    background-color: rgba(124, 56, 130, 0.68);
+    color: white;
+    padding: 2rem 2.5rem;
+    border-radius: 2.2rem 0 2.2rem 0;
+    max-width: 28rem;
+    box-shadow: 0.625rem 0.625rem 0.625rem #7C3882;
+    z-index: 2;
+}
+
+.text-block h2 {
+    font-family: 'Philosopher', sans-serif;
+    font-size: 2.3em;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    line-height: 1.2;
+}
+
+/* Информационная секция */
+.info-section {
+    grid-row: 3;
+    background-color: #7C3882;
+    padding: 3.75rem 0;
+    width: 100%;
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.info-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 3.125rem;
+}
+
+.info-text {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    line-height: 1.6;
+    text-align: center;
+    font-weight: 400;
+}
+
+/* Стили мобильного меню */
+#menu-toggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    left: -9999px;
+    top: -9999px;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+/* Кнопка гамбургер-меню */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 0.625rem;
+    background: none;
+    border: none;
+    position: fixed;
+    z-index: 1002;
+    right: 1.25rem;
+    top: 0.9375rem;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Полоски гамбургер-меню */
+.hamburger span {
+    display: block;
+    width: 1.5625rem;
+    height: 0.1875rem;
+    background-color: white;
+    margin: 0.3125rem 0;
+    transition: 0.3s;
+    border-radius: 0.1875rem;
+}
+
+/* Секция направлений */
+.directions-section {
+    grid-row: 4;
+    padding: 3.125rem 1.25rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.875rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.directions-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.directions-title {
+    color: #7C3882;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.2em;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-weight: 700;
+}
+
+.directions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.875rem;
+    padding: 0 1.25rem;
+}
+
+.direction-card {
+    background-color: #7C3882;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    padding: 1.875rem 1.25rem;
+}
+
+.direction-card h3 {
+    background-color: transparent;
+    color: white;
+    padding: 0 0 1.25rem 0;
+    margin: 0;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.direction-content {
+    min-height: 17.5rem;
+    background-color: #FCD7FF;
+    color: #7C3882;
+    border-radius: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.direction-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.direction-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FCD7FF;
+    color: #7C3882;
+    padding: 1.5rem;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: opacity 0.3s ease;
+}
+
+.direction-text p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Медиа-запросы для адаптации */
+@media screen and (max-width: 768px) {
+    header {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background-color: #7C3882;
+        padding: 1rem 0;
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: flex-end;
+        padding: 0 1rem;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 40%;
+        height: 100.5vh;
+        background-color: rgba(124, 56, 130, 0.95);
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        transition: 0.3s;
+        z-index: 1001;
+    }
+
+    .right-section {
+        display: none;
+    }
+
+    .nav-links > a:first-of-type {
+        margin-top: 3.75rem;
+    }
+
+    .nav-links > a {
+        padding: 0.3rem 1.875rem;
+        font-size: 1.2rem;
+        text-align: left;
+        width: 100%;
+        color: white;
+    }
+
+    .nav-links .social-links {
+        position: absolute;
+        bottom: 2.5rem;
+        left: 0;
+        width: 100%;
+        padding: 0 1.875rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.625rem;
+    }
+
+    .nav-links .social-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1rem;
+        padding: 0.5rem 0;
+        text-align: left;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .nav-links .social-links a:first-child {
+        font-family: 'Comfortaa', cursive;
+        letter-spacing: 0.5px;
+        font-size: 0.85rem;
+    }
+
+    .hamburger {
+        display: block;
+        position: fixed;
+        z-index: 1002;
+        right: 1.25rem;
+        top: 0.9375rem;
+        padding: 0.4rem;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 1.2rem;
+        height: 0.15rem;
+        background-color: white;
+        margin: 0.25rem 0;
+        transition: 0.3s;
+        border-radius: 0.1875rem;
+    }
+
+    #menu-toggle:checked ~ .nav-links {
+        right: 0;
+    }
+
+    #menu-toggle:checked ~ .hamburger span {
+        background-color: white;
+    }
+
+    #menu-toggle:checked ~ .hamburger span:nth-child(1) {
+        transform: rotate(45deg) translate(0.2rem, 0.35rem);
+    }
+
+    #menu-toggle:checked ~ .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #menu-toggle:checked ~ .hamburger span:nth-child(3) {
+        transform: rotate(-45deg) translate(0.2rem, -0.35rem);
+    }
+
+    body {
+        row-gap: 0;
+        margin: 0;
+        padding: 0;
+        margin-top: -12% !important;
+        padding-top: 0 !important;
+        background-image: none !important;
+        background-repeat: initial !important;
+        background-size: initial !important;
+        background-color: #fff;
+        background-image: url('images/logo1.png') !important;
+        background-repeat: no-repeat !important;
+        background-size: 60% auto !important;
+        background-position: 95% 10% !important;
+    }
+
+    .main-section {
+        height: 84%;
+        min-height: auto;
+        margin-top: 3.5rem;
+        padding: 0;
+    }
+
+    .main-image {
+        width: 100%;
+        height: auto;
+        top: 30%;
+        right: 0;
+        object-fit: contain;
+    }
+
+    .text-block {
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: none;
+        padding: 1.5rem;
+    }
+
+    .info-section {
+        margin-top: -26.5%;
+        padding: 0;
+        height: fit-content;
+        z-index: 500;
+        position: relative;
+    }
+
+    .directions-section {
+        margin: 0;
+        padding-top: 0;
+    }
+
+    .directions-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .direction-content {
+        min-height: 12rem;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin: 1rem 0;
+        text-align: center;
+    }
+
+    h1 span {
+        font-size: 1.5em;
+    }
+}
+
+/* Стили для десктопа (больше 1024px) */
+@media screen and (min-width: 1025px) {
+    .direction-content:hover img {
+        opacity: 0;
+    }
+    
+    .direction-content:hover .direction-text {
+        opacity: 1;
+    }
+}
+
+/* Стили для планшетов и мобильных */
+@media screen and (max-width: 1024px) {
+    .direction-content {
+        min-height: fit-content;
+    }
+
+    .direction-content img {
+        opacity: 1;
+    }
+
+    .direction-content.text-visible img {
+        opacity: 0;
+    }
+
+    .direction-content.text-visible .direction-text {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main-section {
+        margin-top: 3rem;
+    }
+
+    .main-image {
+        width: 100%;
+        height: auto;
+        top: 30%;
+        right: 0;
+        object-fit: contain;
+    }
+
+    .text-block {
+        width: 40%;
+        margin-top: -5%;
+    }
+
+    .info-section {
+        margin-top: -20%;
+    }
+
+    .info-text {
+        font-size: 1.2em;
+    }
+
+    .directions-title {
+        font-size: 2.5em;
+    }
+
+    .direction-content {
+        min-height: 12rem;
+    }
+}
+
+/* Адаптация для мобильных устройств (до 480px) */
+@media screen and (max-width: 480px) {
+    .main-section {
+        margin-top: 4rem;
+    }
+
+    .main-image {
+        width: 100%;
+        height: auto;
+        top: 30%;
+        object-fit: contain;
+    }
+
+    .text-block {
+        width: 45%;
+        margin-top: 0;
+    }
+
+    .info-section {
+        margin-top: -25%;
+    }
+
+    .info-text {
+        font-size: 1em;
+    }
+
+    .directions-title {
+        font-size: 2em;
+    }
+
+    .direction-content {
+        min-height: 10rem;
+    }
+
+    .signup-section {
+        padding: 2rem 1rem;
+    }
+
+    .signup-container {
+        padding: 1.5rem;
+    }
+}
+
+/* Стили для кнопки прокрутки вверх */
+#scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #7C3882;
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border: none;
+    user-select: none;
+    outline: none;
+}
+
+#scroll-top:focus {
+    outline: none;
+}
+
+#scroll-top i {
+    font-size: 24px;
+    line-height: 1;
+    color: white;
+    user-select: none;
+    pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {
+    #scroll-top {
+        display: none !important;
+    }
+}
+
+/* Стили формы записи */
+.signup-section {
+    grid-row: 5;
+    padding: 3.75rem 1.25rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    order: 5;
+}
+
+.signup-container {
+    max-width: 37.5rem;
+    margin: 0 auto;
+    background-color: rgb(255, 246, 255);
+    padding: 2.5rem;
+    border-radius: 1.25rem;
+    box-shadow: 0 0.3125rem 0.9375rem rgba(124, 56, 130, 0.2);
+}
+
+.signup-title {
+    color: #7C3882;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2em;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    color: #7C3882;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.form-group input {
+    padding: 0.75rem 0.9375rem;
+    border: 2px solid #7C3882;
+    border-radius: 0.625rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #9c4aa3;
+}
+
+.form-group input::placeholder {
+    color: #999;
+    font-size: 0.9em;
+}
+
+.submit-btn {
+    background-color: #7C3882;
+    color: white;
+    padding: 0.9375rem 1.875rem;
+    border: none;
+    border-radius: 0.625rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 0.625rem;
+}
+
+.submit-btn:hover {
+    background-color: #9c4aa3;
+}
+
+.privacy-policy {
+    margin-top: 5px;
+    text-align: center;
+}
+
+.privacy-policy p {
+    color: #666;
+    font-size: 0.7em;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1;
+}
+
+@media screen and (max-width: 768px) {
+    .signup-section {
+        padding: 40px 15px;
+    }
+
+    .signup-container {
+        padding: 30px 20px;
+    }
+
+    .signup-title {
+        font-size: 1.8em;
+        margin-bottom: 25px;
+    }
+
+    .form-group label {
+        font-size: 1em;
+    }
+
+    .form-group input {
+        padding: 10px 12px;
+        font-size: 0.9em;
+    }
+
+    .submit-btn {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+
+    .privacy-policy p {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body{
+        margin-top: -12%;
+    }
+    .signup-section {
+        padding: 30px 15px;
+    }
+
+    .signup-container {
+        padding: 20px 15px;
+    }
+
+    .signup-title {
+        font-size: 1.6em;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        gap: 6px;
+    }
+
+    .form-group label {
+        font-size: 0.9em;
+    }
+
+    .form-group input {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+
+    .submit-btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    .privacy-policy p {
+        font-size: 0.75em;
+    }
+}
+
+#menu-toggle:checked ~ .hamburger span {
+    background-color: white;
+}
+
+/* Фоновый логотип */
+.background-logo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url('images/logo.png');
+    background-repeat: no-repeat;
+    background-position: 75% 50%;
+    background-size: 50% auto;
+    z-index: -2;
+    filter: opacity(2%) brightness(150%) contrast(50%);
+    pointer-events: none;
+}
+
+/* Убираем мигающий курсор на всех не-текстовых элементах */
+button, .direction-content, #scroll-top, .main-image, .text-block, .hamburger, .nav-links, .social-icons, .direction-card, .signup-section, .signup-container, .submit-btn, .privacy-policy, .info-section, .main-section, .background-logo {
+    user-select: none !important;
+    outline: none !important;
+    caret-color: transparent !important;
+}
+
+#scroll-top i {
+    user-select: none !important;
+    pointer-events: none !important;
+    outline: none !important;
+    caret-color: transparent !important;
+}
+
+#toast-message {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #7C3882;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 1.2rem;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s, top 0.4s;
+    display: block;
+}
+#toast-message.show {
+    opacity: 1;
+    top: 60px;
+    pointer-events: auto;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: modalAppear 0.3s ease;
+}
+
+@keyframes modalAppear {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-content h3 {
+    color: #7C3882;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    color: #666;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.modal-close {
+    background-color: #7C3882;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-close:hover {
+    background-color: #9c4aa3;
+}
+
+@media screen and (max-width: 768px) {
+    .modal-content {
+        padding: 25px;
+    }
+
+    .modal-content h3 {
+        font-size: 1.5em;
+    }
+
+    .modal-content p {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .modal-content {
+        padding: 20px;
+    }
+
+    .modal-content h3 {
+        font-size: 1.3em;
+    }
+
+    .modal-content p {
+        font-size: 0.9em;
+    }
+
+    .modal-close {
+        padding: 8px 25px;
+        font-size: 0.9em;
+    }
+}
+
+/* Адаптация для планшетов (769px - 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .main-section {
+        min-height: 120vh;
+    }
+
+    .main-image {
+        width: 100%;
+        height: auto;
+        top: 40%;
+    }
+
+    .text-block {
+        top: 65%;
+    }
+}
+
+/* Адаптация для планшетов (до 768px) */
+@media screen and (max-width: 768px) {
+    .main-section {
+        min-height: 110vh;
+    }
+
+    .main-image {
+        width: 100%;
+        height: auto;
+        top: 30%;
+    }
+
+    .text-block {
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+    }
+}
+
+/* Адаптация для мобильных устройств (до 480px) */
+@media screen and (max-width: 480px) {
+    .main-section {
+        min-height: 100vh;
+    }
+
+    .main-image {
+        width: 100%;
+        height: auto;
+        top: 30%;
+    }
+
+    .text-block {
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 95%;
+    }
+}
+
+/* Адаптация для планшетов (769px - 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    h1 {
+        font-size: 2.8em;
+        margin-left: 1.5%;
+        max-width: 500px;
+        margin-top: 2rem;
+    }
+
+    h1 span {
+        font-size: 1.8em;
+    }
+
+    .text-block {
+        top: 45%;
+        left: 2.5rem;
+        transform: translateY(-50%);
+        padding: 1.5rem 2rem;
+    }
+
+    .info-section {
+        margin-top: 2rem;
+        padding: 2rem 0;
+    }
+}
+
+/* Адаптация для планшетов (до 768px) */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 2.2em;
+        margin: 2rem 0;
+        text-align: center;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    h1 span {
+        font-size: 1.4em;
+    }
+
+    .text-block {
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: none;
+        padding: 1.5rem;
+    }
+
+    .info-section {
+        margin-top: 3rem;
+        padding: 2rem 0;
+    }
+}
+
+/* Адаптация для мобильных устройств (до 480px) */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+        margin: 1.5rem 0;
+        max-width: 95%;
+    }
+
+    h1 span {
+        font-size: 1.2em;
+    }
+
+    .text-block {
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 95%;
+        padding: 1.2rem;
+    }
+
+    .text-block h2 {
+        font-size: 1.8em;
+    }
+
+    .info-section {
+        margin-top: 2.5rem;
+        padding: 1.5rem 0;
+    }
+} 
