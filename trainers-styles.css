@@ -1,0 +1,199 @@
+/* Основные стили страницы тренеров */
+.trainers-main {
+    padding: 2rem 1.25rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Секция hero */
+.trainers-hero {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.trainers-hero h1 {
+    color: #7C3882;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.2em;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.trainers-description {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.trainers-description p {
+    color: #7C3882;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4em;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+/* Сетка тренеров */
+.trainers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 4rem 0;
+}
+
+/* Карточка тренера */
+.trainer-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(124, 56, 130, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.trainer-card:hover {
+    transform: translateY(-5px);
+}
+
+.trainer-photo {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.trainer-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.trainer-info {
+    padding: 1.5rem;
+}
+
+.trainer-info h3 {
+    color: #7C3882;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4em;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.trainer-role {
+    color: #7C3882;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.trainer-description {
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+/* Секция достижений */
+.achievements-section {
+    background-color: #7C3882;
+    padding: 3rem 2rem;
+    margin: 4rem -1.25rem;
+    color: white;
+    text-align: center;
+}
+
+.achievements-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.achievements-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.achievements-content p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+/* Адаптивные стили */
+@media screen and (max-width: 1024px) {
+    .trainers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .trainers-main {
+        margin-top: 5rem;
+        padding-top: 2rem;
+    }
+
+    .trainers-hero h1 {
+        font-size: 2.5em;
+    }
+
+    .trainers-description p {
+        font-size: 1.2em;
+    }
+
+    .trainers-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+
+    .trainer-photo {
+        height: 250px;
+    }
+
+    .achievements-section {
+        margin: 2rem -1.25rem;
+        padding: 2rem 1rem;
+    }
+
+    .achievements-section h2 {
+        font-size: 2em;
+    }
+
+    .achievements-content p {
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .trainers-hero h1 {
+        font-size: 2em;
+    }
+
+    .trainers-description p {
+        font-size: 1.1em;
+    }
+
+    .trainer-photo {
+        height: 200px;
+    }
+
+    .trainer-info h3 {
+        font-size: 1.2em;
+    }
+
+    .trainer-role {
+        font-size: 1em;
+    }
+
+    .trainer-description {
+        font-size: 0.9em;
+    }
+
+    .achievements-section h2 {
+        font-size: 1.8em;
+    }
+
+    .achievements-content p {
+        font-size: 1em;
+    }
+} 
