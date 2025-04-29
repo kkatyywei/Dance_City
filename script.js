@@ -75,6 +75,102 @@ document.addEventListener('DOMContentLoaded', function() {
             form.reset();
         });
     }
+
+    // Инициализация слайдера
+    initSlider();
+});
+
+// Слайдер
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.querySelector('.slider');
+    if (!slider) return;
+
+    const slides = slider.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.slider-button.prev');
+    const nextBtn = document.querySelector('.slider-button.next');
+    const dotsContainer = document.querySelector('.slider-dots');
+
+    let currentIndex = 0;
+
+    // Создаем точки навигации
+    slides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.dot');
+
+    function goToSlide(index) {
+        slider.style.transform = `translateX(-${index * 100}%)`;
+        currentIndex = index;
+        updateDots();
+    }
+
+    function updateDots() {
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        goToSlide(currentIndex);
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        goToSlide(currentIndex);
+    }
+
+    // Обработчики кликов по кнопкам
+    if (prevBtn) {
+        prevBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            prevSlide();
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            nextSlide();
+        });
+    }
+
+    // Навигация с клавиатуры
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') prevSlide();
+        if (e.key === 'ArrowRight') nextSlide();
+    });
+
+    // Свайпы на мобильных
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    slider.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    slider.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+        }
+    }
 });
 
 // Обработка кликов по карточкам направлений

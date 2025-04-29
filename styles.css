@@ -54,6 +54,7 @@ header {
 .nav-links {
     display: flex;
     gap: 2rem;
+    margin-left: -8rem;
 }
 
 .nav-links a {
@@ -68,18 +69,21 @@ header {
     color: #FCD7FF;
 }
 
+.social-links {
+    display: none;
+}
+
 /* Иконки социальных сетей в шапке */
 .social-icons {
     display: flex;
     gap: 1.3rem;
-    margin-right: 2.8rem;
     align-items: center;
+    margin-right: -8rem;
 }
 
 .social-icons img {
     width: 2rem;
     height: 2rem;
-    cursor: pointer;
     transition: transform 0.3s;
 }
 
@@ -92,7 +96,6 @@ header {
     text-decoration: none;
     font-family: 'Comfortaa', cursive;
     font-size: 1.1rem;
-    margin-right: 2rem;
     transition: color 0.3s;
 }
 
@@ -103,24 +106,25 @@ header {
 /* Стили заголовка */
 h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 3.5em;
+    font-size: 3.2em;
     font-weight: 400;
     color: #7C3882;
     position: relative;
     text-shadow: 4px -4px 0px rgba(123, 56, 130, 0.2);
-    line-height: 1.5;
+    line-height: 1.2;
     letter-spacing: 1px;
-    margin-left: 2.5%;
-    max-width: 600px;
+    margin: -3%;
+    padding: 2rem 0;
 }
 
 h1 span {
     font-family: 'Comfortaa', cursive;
-    font-size: 2.1em;
+    font-size: 2em;
     font-weight: 310;
     color: #7C3882;
     text-shadow: 5px -5px 0px rgba(123, 56, 130, 0.2);
     letter-spacing: 0.125rem;
+    display: block;
 }
 
 /* Основной контент */
@@ -128,55 +132,54 @@ h1 span {
     grid-row: 2;
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 90vh;
     overflow: hidden;
-    display: grid;
-    grid-template-rows: auto 1fr;
-    margin-top: 0;
-    padding-bottom: 2rem;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 2rem;
 }
 
 .main-content {
     position: relative;
-    text-align: left;
-    margin-left: 1.5rem;
-    padding-top: 2.5rem;
-    z-index: 1;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    min-height: 100vh;
+    padding: 0 2rem;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Главное изображение */
 .main-image {
     position: absolute;
-    right: 0;
-    top: 40%;
-    width: 100%;
+    right: -15%;
+    top: 8%;
+    bottom: 0;
+    width: 80%;
     height: auto;
     object-fit: contain;
-    z-index: 0;
+    z-index: 1;
 }
 
 /* Блок с текстом на главной */
 .text-block {
     position: absolute;
-    top: 60%;
-    left: 3.125rem;
-    transform: translateY(-50%);
+    left: 2rem;
+    bottom: 35%;
     background-color: rgba(124, 56, 130, 0.68);
     color: white;
     padding: 2rem 2.5rem;
     border-radius: 2.2rem 0 2.2rem 0;
-    max-width: 28rem;
+    max-width: 23rem;
     box-shadow: 0.625rem 0.625rem 0.625rem #7C3882;
     z-index: 2;
 }
 
 .text-block h2 {
     font-family: 'Philosopher', sans-serif;
-    font-size: 2.3em;
-    margin-bottom: 0.5rem;
+    font-size: 1.85em;
+    margin: 0;
     font-weight: 400;
     letter-spacing: 1.5px;
     line-height: 1.2;
@@ -364,6 +367,10 @@ h1 span {
         padding: 1rem 0;
     }
 
+    .social-icons{
+        display: none;
+    }
+
     .header-content {
         display: flex;
         justify-content: flex-end;
@@ -384,10 +391,6 @@ h1 span {
         z-index: 1001;
     }
 
-    .right-section {
-        display: none;
-    }
-
     .nav-links > a:first-of-type {
         margin-top: 3.75rem;
     }
@@ -406,9 +409,7 @@ h1 span {
         left: 0;
         width: 100%;
         padding: 0 1.875rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.625rem;
+        display: block;
     }
 
     .nav-links .social-links a {
@@ -418,6 +419,7 @@ h1 span {
         padding: 0.5rem 0;
         text-align: left;
         font-family: 'Montserrat', sans-serif;
+        display: block;
     }
 
     .nav-links .social-links a:first-child {
@@ -428,18 +430,23 @@ h1 span {
 
     .hamburger {
         display: block;
+        cursor: pointer;
+        padding: 0.625rem;
+        background: none;
+        border: none;
         position: fixed;
         z-index: 1002;
-        right: 1.25rem;
-        top: 0.9375rem;
-        padding: 0.4rem;
+        right: 2rem;
+        top: 1.3rem;
+        width: 1.2rem;
+        height: 1.2rem;
     }
 
     .hamburger span {
         display: block;
         width: 1.2rem;
         height: 0.15rem;
-        background-color: white;
+        background-color: #7C3882;
         margin: 0.25rem 0;
         transition: 0.3s;
         border-radius: 0.1875rem;
@@ -451,10 +458,13 @@ h1 span {
 
     #menu-toggle:checked ~ .hamburger span {
         background-color: white;
+        margin: 0;
+        position: absolute;
+        top: 50%;
     }
 
     #menu-toggle:checked ~ .hamburger span:nth-child(1) {
-        transform: rotate(45deg) translate(0.2rem, 0.35rem);
+        transform: rotate(45deg);
     }
 
     #menu-toggle:checked ~ .hamburger span:nth-child(2) {
@@ -462,7 +472,7 @@ h1 span {
     }
 
     #menu-toggle:checked ~ .hamburger span:nth-child(3) {
-        transform: rotate(-45deg) translate(0.2rem, -0.35rem);
+        transform: rotate(-45deg);
     }
 
     body {
@@ -479,6 +489,15 @@ h1 span {
         background-repeat: no-repeat !important;
         background-size: 60% auto !important;
         background-position: 95% 10% !important;
+    }
+
+    h1 {
+        font-size: 1.3em;
+        margin: 0 0;
+    }
+
+    h1 span {
+        font-size: 1em;
     }
 
     .main-section {
@@ -498,10 +517,10 @@ h1 span {
 
     .text-block {
         top: 60%;
-        left: 50%;
+        left: 20%;
         transform: translate(-50%, -50%);
-        width: 90%;
-        max-width: none;
+        width: 40%;
+        max-width: 40%;
         padding: 1.5rem;
     }
 
@@ -527,15 +546,7 @@ h1 span {
         min-height: 12rem;
     }
 
-    h1 {
-        font-size: 2em;
-        margin: 1rem 0;
-        text-align: center;
-    }
-
-    h1 span {
-        font-size: 1.5em;
-    }
+    
 }
 
 /* Стили для десктопа (больше 1024px) */
@@ -569,6 +580,19 @@ h1 span {
 }
 
 @media screen and (max-width: 768px) {
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 1rem 0;
+        background: none;
+    }
+
+    .social-links{
+        display: none;
+    }
     .main-section {
         margin-top: 3rem;
     }
@@ -604,47 +628,7 @@ h1 span {
 }
 
 /* Адаптация для мобильных устройств (до 480px) */
-@media screen and (max-width: 480px) {
-    .main-section {
-        margin-top: 4rem;
-    }
 
-    .main-image {
-        width: 100%;
-        height: auto;
-        top: 30%;
-        object-fit: contain;
-    }
-
-    .text-block {
-        width: 45%;
-        margin-top: 0;
-    }
-
-    .info-section {
-        margin-top: -25%;
-    }
-
-    .info-text {
-        font-size: 1em;
-    }
-
-    .directions-title {
-        font-size: 2em;
-    }
-
-    .direction-content {
-        min-height: 10rem;
-    }
-
-    .signup-section {
-        padding: 2rem 1rem;
-    }
-
-    .signup-container {
-        padding: 1.5rem;
-    }
-}
 
 /* Стили для кнопки прокрутки вверх */
 #scroll-top {
@@ -818,45 +802,6 @@ h1 span {
     }
 }
 
-@media screen and (max-width: 480px) {
-    body{
-        margin-top: -12%;
-    }
-    .signup-section {
-        padding: 30px 15px;
-    }
-
-    .signup-container {
-        padding: 20px 15px;
-    }
-
-    .signup-title {
-        font-size: 1.6em;
-        margin-bottom: 20px;
-    }
-
-    .form-group {
-        gap: 6px;
-    }
-
-    .form-group label {
-        font-size: 0.9em;
-    }
-
-    .form-group input {
-        padding: 8px 10px;
-        font-size: 0.9em;
-    }
-
-    .submit-btn {
-        padding: 10px 20px;
-        font-size: 0.9em;
-    }
-
-    .privacy-policy p {
-        font-size: 0.75em;
-    }
-}
 
 #menu-toggle:checked ~ .hamburger span {
     background-color: white;
@@ -995,25 +940,6 @@ button, .direction-content, #scroll-top, .main-image, .text-block, .hamburger, .
     }
 }
 
-@media screen and (max-width: 480px) {
-    .modal-content {
-        padding: 20px;
-    }
-
-    .modal-content h3 {
-        font-size: 1.3em;
-    }
-
-    .modal-content p {
-        font-size: 0.9em;
-    }
-
-    .modal-close {
-        padding: 8px 25px;
-        font-size: 0.9em;
-    }
-}
-
 /* Адаптация для планшетов (769px - 1024px) */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
     .main-section {
@@ -1051,25 +977,7 @@ button, .direction-content, #scroll-top, .main-image, .text-block, .hamburger, .
     }
 }
 
-/* Адаптация для мобильных устройств (до 480px) */
-@media screen and (max-width: 480px) {
-    .main-section {
-        min-height: 100vh;
-    }
 
-    .main-image {
-        width: 100%;
-        height: auto;
-        top: 30%;
-    }
-
-    .text-block {
-        top: 70%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 95%;
-    }
-}
 
 /* Адаптация для планшетов (769px - 1024px) */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
@@ -1127,32 +1035,119 @@ button, .direction-content, #scroll-top, .main-image, .text-block, .hamburger, .
     }
 }
 
-/* Адаптация для мобильных устройств (до 480px) */
 @media screen and (max-width: 480px) {
+
+    body {
+        margin-top: -13% !important;
+        padding-top: 0 !important;
+        background-image: none !important;
+        background-repeat: initial !important;
+        background-size: initial !important;
+        background-color: #fff;
+        background-image: url('images/logo1.png') !important;
+        background-repeat: no-repeat !important;
+        background-size: 60% auto !important;
+        background-position: 95% 10% !important;
+    }
+
     h1 {
         font-size: 1.8em;
-        margin: 1.5rem 0;
+        font-weight: 370;
+        color: #7C3882;
+        position: relative;
+        text-shadow: 2px -2px 0px rgba(123, 56, 130, 0.2);
+        line-height: 1.2;
+        letter-spacing: 1px;
+        margin: -3%;
+        padding: 2rem 0;
+        text-align: left;
         max-width: 95%;
     }
 
     h1 span {
         font-size: 1.2em;
+        font-weight: 310;
+        color: #7C3882;
+        text-shadow: 2px -2px 0px rgba(123, 56, 130, 0.2);
+        letter-spacing: 0.125rem;
+        display: block;
+    }
+
+    .main-section {
+        min-height: 100vh;
+        margin-top: 4rem;
+    }
+
+    .main-image {
+        width: 95%;
+        height: auto;
+        top: 20%;
+        object-fit: contain;
+        margin-top: 1em;
     }
 
     .text-block {
         top: 55%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 95%;
+        width: 32%;
+        left: 20%;
+        top: 35%;
         padding: 1.2rem;
+        height: fit-content;
+        margin-top: 0;
+        border-radius: 1.1rem 0 1.1rem 0;
     }
 
-    .text-block h2 {
-        font-size: 1.8em;
+    .text-block h2{
+        font-size: 0.6em;
     }
 
     .info-section {
-        margin-top: 2.5rem;
-        padding: 1.5rem 0;
+        margin-top: -57%;
+        margin-bottom: 5%;
     }
-} 
+
+    .info-text {
+        font-size: 1em;
+    }
+
+    .direction-card h3{
+        font-size: 1.3em;
+    }
+
+    .directions-title {
+        font-size: 2em;
+    }
+
+    .direction-text p{
+        font-size: 0.8em;
+    }
+
+    .direction-content {
+        min-height: 10rem;
+    }
+
+    .signup-section {
+        padding: 2rem 1rem;
+    }
+
+    .signup-container {
+        padding: 1.5rem;
+    }
+    
+    .modal-content {
+        padding: 20px;
+    }
+
+    .modal-content h3 {
+        font-size: 1.3em;
+    }
+
+    .modal-content p {
+        font-size: 0.9em;
+    }
+
+    .modal-close {
+        padding: 8px 25px;
+        font-size: 0.9em;
+    }
+}

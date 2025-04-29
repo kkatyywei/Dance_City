@@ -52,6 +52,7 @@ header {
     margin: 0 auto;
 }
 
+
 /* Навигационные ссылки */
 .nav-links {
     display: flex;
@@ -73,7 +74,9 @@ header {
 
 
 .right-section {
-    margin-right: -8rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
 
 /* Иконки социальных сетей */
@@ -91,6 +94,10 @@ header {
 
 .social-icons a:hover img {
     transform: scale(1.1);
+}
+
+.social-links{
+    display: none;
 }
 
 .phone-number {
@@ -146,7 +153,7 @@ header {
     display: block;
     width: 1.5625rem;
     height: 0.1875rem;
-    background-color: white;
+    background-color: #7C3882;
     margin: 0.3125rem 0;
     transition: 0.3s;
     border-radius: 0.1875rem;
@@ -155,14 +162,13 @@ header {
 /* Адаптивные стили для шапки */
 @media screen and (max-width: 768px) {
     header {
-        display: block;
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
         z-index: 1000;
-        background-color: #7C3882;
         padding: 1rem 0;
+        background: none;
     }
 
     .header-content {
@@ -176,26 +182,28 @@ header {
         top: 0;
         right: -100%;
         width: 40%;
-        height: 100.5vh;
+        height: 100vh;
         background-color: rgba(124, 56, 130, 0.95);
         display: flex;
         flex-direction: column;
         padding: 0;
         transition: 0.3s;
         z-index: 1001;
+        margin-left: 0;
     }
 
-    .right-section {
+    .nav-links > a {
         display: none;
     }
 
-    /* Отступ для первой ссылки в меню */
     .nav-links > a:first-of-type {
         margin-top: 3.75rem;
+        display: block;
     }
 
-    /* Стили ссылок в мобильном меню */
-    .nav-links > a {
+    .nav-links > a:nth-child(2),
+    .nav-links > a:nth-child(3) {
+        display: block;
         padding: 0.3rem 1.875rem;
         font-size: 1.2rem;
         text-align: left;
@@ -203,7 +211,6 @@ header {
         color: white;
     }
 
-    /* Социальные ссылки в мобильном меню */
     .nav-links .social-links {
         position: absolute;
         bottom: 2.5rem;
@@ -215,24 +222,10 @@ header {
         gap: 0.625rem;
     }
 
-    /* Стили для текста социальных ссылок */
-    .nav-links .social-links a {
-        color: white;
-        text-decoration: none;
-        font-size: 1.1rem;
-        padding: 0.5rem 0;
-        text-align: left;
-        font-family: 'Montserrat', sans-serif;
+    .right-section {
+        display: none;
     }
 
-    /* Стиль для номера телефона */
-    .nav-links .social-links a:first-child {
-        font-family: 'Comfortaa', cursive;
-        letter-spacing: 0.5px;
-        font-size: 0.85rem;
-    }
-
-    /* Показ гамбургер-меню */
     .hamburger {
         display: block;
         position: fixed;
@@ -241,12 +234,131 @@ header {
         top: 0.9375rem;
     }
 
-    /* Анимация открытия меню */
     #menu-toggle:checked ~ .nav-links {
         right: 0;
     }
 
-    /* Анимация гамбургер-меню */
+    body {
+        width: 100%;
+        margin: 0;
+        padding: 0 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .about-main {
+        width: 100%;
+        margin-top: 5rem;
+        padding: 2rem 1rem;
+    }
+
+    
+    body {
+        row-gap: 0;
+        margin: 0;
+        padding: 0;
+        padding-top: 0 !important;
+        background-image: none !important;
+        background-repeat: initial !important;
+        background-size: initial !important;
+        background-color: #fff;
+        background-image: url('images/logo1.png') !important;
+        background-repeat: no-repeat !important;
+        background-size: 60% auto !important;
+        background-position: 95% 10% !important;
+    }
+
+    .about-hero {
+        margin-top: 2rem;
+    }
+
+    .about-hero h1 {
+        font-size: 2.2em;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+    }
+
+    .about-description p {
+        font-size: 1.1em;
+        line-height: 1.5;
+        padding: 0;
+    }
+
+    .gallery-grid {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .gallery-item {
+        width: 100%;
+        height: 200px;
+    }
+
+    .photos-section {
+        width: 100%;
+        transform: none;
+        border: none;
+        margin: 2rem 0;
+    }
+
+    .photos-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 0;
+    }
+
+    .photo-item {
+        aspect-ratio: 16/9;
+    }
+
+    .achievements-section {
+        margin: 2rem -5%;
+        padding: 2rem 1rem;
+    }
+
+    .achievements-section h2 {
+        font-size: 2em;
+        margin-bottom: 1rem;
+    }
+
+    .achievements-content p {
+        font-size: 1.1em;
+        line-height: 1.5;
+    }
+
+    .location-content {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 0;
+    }
+
+    .location-info {
+        text-align: center;
+        padding: 0;
+    }
+
+    .location-map {
+        width: 100%;
+        max-width: none;
+    }
+
+    .location-map iframe {
+        height: 250px;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 1.2rem;
+        height: 0.15rem;
+        background-color: #7C3882;
+        margin: 0.25rem 0;
+        transition: 0.3s;
+        border-radius: 0.1875rem;
+    }
+
     #menu-toggle:checked ~ .hamburger span {
         background-color: white;
     }
@@ -262,10 +374,31 @@ header {
     #menu-toggle:checked ~ .hamburger span:nth-child(3) {
         transform: rotate(-45deg) translate(0.35rem, -0.35rem);
     }
+}
 
-    /* Отступы для контента под фиксированным header */
-    .about-main {
-        padding-top: 4rem;
+@media screen and (max-width: 480px) {
+    .about-hero h1 {
+        font-size: 1.8em;
+    }
+
+    .about-description p {
+        font-size: 1em;
+    }
+
+    .gallery-item {
+        height: 150px;
+    }
+
+    .achievements-section h2 {
+        font-size: 1.8em;
+    }
+
+    .achievements-content p {
+        font-size: 1em;
+    }
+
+    .location-map iframe {
+        height: 200px;
     }
 }
 
@@ -344,7 +477,6 @@ header {
 
 /* Секция фотографий */
 .photos-section {
-    border: solid black 3px;
     margin: 4rem auto;
     padding: 0;
     width: 110%;
