@@ -19,26 +19,11 @@ window.addEventListener('scroll', function() {
 
 // Плавная прокрутка вверх по клику на стрелку
 document.addEventListener('DOMContentLoaded', function() {
-    // Кнопка прокрутки вверх
-    const scrollTopButton = document.getElementById('scroll-top');
-
-    window.addEventListener('scroll', function() {
-        if (scrollTopButton) {
-            if (window.pageYOffset > 100) {
-                scrollTopButton.style.opacity = '1';
-                scrollTopButton.style.visibility = 'visible';
-            } else {
-                scrollTopButton.style.opacity = '0';
-                scrollTopButton.style.visibility = 'hidden';
-            }
-        }
+    const btn = document.getElementById('scroll-top');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-
-    if (scrollTopButton) {
-        scrollTopButton.addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
 
     // Обработчик кликов для блоков направлений
     const directionContents = document.querySelectorAll('.direction-content');
@@ -197,4 +182,22 @@ function toggleTextVisibility(event) {
 
 // Вызываем функцию при загрузке и при изменении размера окна
 document.addEventListener('DOMContentLoaded', handleDirectionCards);
-window.addEventListener('resize', handleDirectionCards); 
+window.addEventListener('resize', handleDirectionCards);
+
+// Функционал кнопки прокрутки наверх
+const scrollTopButton = document.getElementById('scroll-top');
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        scrollTopButton.classList.add('visible');
+    } else {
+        scrollTopButton.classList.remove('visible');
+    }
+});
+
+scrollTopButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}); 
