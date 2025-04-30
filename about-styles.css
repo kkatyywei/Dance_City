@@ -359,7 +359,22 @@ header {
 
 @media screen and (max-width: 480px) {
     .gallery-section {
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .gallery-grid {
         height: fit-content;
+    }
+
+    .gallery-item {
+        height: 200px;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }
 
@@ -921,6 +936,15 @@ header {
     .gallery-item {
         height: 250px;
     }
+
+    .slide {
+        height: fit-content;
+    }
+    
+    .slider-button {
+        width: 30px;
+        height: 30px;
+    }
 }
 
 /* Стили для слайдера */
@@ -1013,15 +1037,3 @@ header {
         height: 35px;
     }
 }
-
-@media screen and (max-width: 480px) {
-    .slide {
-        height: fit-content;
-    }
-    
-    .slider-button {
-        width: 30px;
-        height: 30px;
-    }
-}
-
