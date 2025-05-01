@@ -287,7 +287,68 @@ header {
 }
 
 /* Адаптивные стили */
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    body {
+        margin-top: 0;
+        padding-top: 0;
+        width: 101%;
+    }
+
+    header {
+        background-color: #7C3882;
+        padding: 1rem 0;
+        position: relative;
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+
+    .header-content {
+        width: 100%;
+        max-width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+        margin: 0 auto;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+        margin-left: 0;
+        align-items: center;
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+    }
+
+    .right-content {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 1.3rem;
+        align-items: center;
+        margin-right: 0;
+    }
+     
+    .social-icons img {
+        width: 2rem;
+        height: 2rem;
+        transition: transform 0.3s;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
     .trainers-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
