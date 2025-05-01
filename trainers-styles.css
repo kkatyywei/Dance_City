@@ -88,38 +88,12 @@ header {
 
 /* Стили мобильного меню */
 #menu-toggle {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-    position: fixed;
-    left: -9999px;
-    top: -9999px;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
+    display: none;
 }
 
 /* Кнопка гамбургер-меню */
 .hamburger {
     display: none;
-    cursor: pointer;
-    padding: 0.625rem;
-    background: none;
-    border: none;
-    position: fixed;
-    z-index: 1002;
-    right: 1.25rem;
-    top: 0.9375rem;
-    outline: none;
-    -webkit-tap-highlight-color: transparent;
-    user-select: none;
-    -webkit-user-select: none;
 }
 
 /* Полоски гамбургер-меню */
@@ -135,7 +109,9 @@ header {
 
 #menu-toggle:checked ~ .hamburger span:nth-child(1) {
     transform: rotate(45deg);
-    right: 4%;
+    position: absolute;
+    top: 50%;
+    margin: 0;
 }
 
 #menu-toggle:checked ~ .hamburger span:nth-child(2) {
@@ -144,8 +120,9 @@ header {
 
 #menu-toggle:checked ~ .hamburger span:nth-child(3) {
     transform: rotate(-45deg);
-    right: 4%;
-    margin-top: 1em;
+    position: absolute;
+    top: 50%;
+    margin: 0;
 }
 
 #scroll-top {
@@ -239,8 +216,9 @@ header {
 
 .trainer-photo {
     width: 100%;
-    height: 300px;
+    height: 350px;
     overflow: hidden;
+    padding: 1rem;
 }
 
 .trainer-photo img {
@@ -318,8 +296,8 @@ header {
     }
 
     .trainer-photo {
-        width: 330px;
-        height: 248px;
+        width: 340px;
+        height: 300px;
         flex-shrink: 0;
     }
 
@@ -344,6 +322,124 @@ header {
 }
 
 @media screen and (max-width: 768px) {
+    .phone-number {
+        display: none;
+    }
+
+    .right-section {
+        display: none;
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 1rem 0;
+        background: none;
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: flex-end;
+        padding: 0 1rem;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 40%;
+        height: 100.5vh;
+        background-color: rgba(124, 56, 130, 0.95);
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        transition: 0.3s;
+        z-index: 1001;
+    }
+
+    .nav-links > a:first-of-type {
+        margin-top: 3.75rem;
+    }
+
+    .nav-links > a {
+        padding: 0.3rem 1.875rem;
+        font-size: 1.2rem;
+        text-align: left;
+        width: 100%;
+        color: white;
+    }
+
+    .nav-links .social-links {
+        position: absolute;
+        bottom: 2.5rem;
+        left: 0;
+        width: 100%;
+        padding: 0 1.875rem;
+        display: block;
+    }
+
+    .nav-links .social-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1rem;
+        padding: 0.5rem 0;
+        text-align: left;
+        font-family: 'Montserrat', sans-serif;
+        display: block;
+    }
+
+    .social-icons{
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        padding: 0.625rem;
+        background: none;
+        border: none;
+        position: fixed;
+        z-index: 1002;
+        right: 2rem;
+        top: 1.3rem;
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 1.2rem;
+        height: 0.15rem;
+        background-color: #7C3882;
+        margin: 0.25rem 0;
+        transition: 0.3s;
+        border-radius: 0.1875rem;
+        transform-origin: center;
+    }
+
+    #menu-toggle:checked ~ .nav-links {
+        right: 0;
+    }
+
+    #menu-toggle:checked ~ .hamburger span {
+        background-color: white;
+    }
+
+    #menu-toggle:checked ~ .hamburger span:nth-child(1) {
+        transform: rotate(45deg);
+    }
+
+    #menu-toggle:checked ~ .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #menu-toggle:checked ~ .hamburger span:nth-child(3) {
+        transform: rotate(-45deg);
+    }
+
     .trainers-main {
         margin-top: 5rem;
         padding-top: 2rem;
@@ -364,17 +460,21 @@ header {
     }
 
     .trainer-card {
-        flex-direction: column;
-        padding: 0;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        padding: 1rem;
     }
 
     .trainer-photo {
         width: 330px;
-        height: 248px;
+        height: 290px;
+        flex-shrink: 0;
     }
 
     .trainer-info {
-        padding: 1.5rem;
+        flex-grow: 1;
+        padding: 0;
     }
 
     .achievements-section {
@@ -412,9 +512,41 @@ header {
         font-size: 1.1em;
     }
 
+    .trainers-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .trainer-card {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        background: #f9e9fb;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(124, 56, 130, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .trainer-card:hover {
+        transform: translateY(-5px);
+    }
+
     .trainer-photo {
-        width: 330px;
-        height: 248px;
+        width: 100%;
+        height: 400px;
+        flex-shrink: 0;
+    }
+
+    .trainer-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .trainer-info {
+        padding: 1.5rem;
+        width: 100%;
     }
 
     .trainer-info h3 {
