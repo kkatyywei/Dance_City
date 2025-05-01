@@ -1,0 +1,490 @@
+// Переменные
+$primary-color: #7C3882;
+$primary-light: #FCD7FF;
+$white: #fff;
+$black: #000;
+$font-montserrat: 'Montserrat', sans-serif;
+$font-comfortaa: 'Comfortaa', cursive;
+
+// Миксины
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin section-padding {
+    padding: 4rem 2rem;
+}
+
+// Общие стили
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: $font-comfortaa;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+    background-image: url('images/logo1.png');
+    background-repeat: no-repeat;
+    background-position: 85% 50%;
+    background-size: 52% auto;
+    background-attachment: fixed;
+    position: relative;
+}
+
+// Стили мобильного меню
+#menu-toggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    left: -9999px;
+    top: -9999px;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 0.625rem;
+    background: none;
+    border: none;
+    position: fixed;
+    z-index: 1002;
+    right: 1.25rem;
+    top: 0.9375rem;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+
+    span {
+        display: block;
+        width: 1.5625rem;
+        height: 0.1875rem;
+        background-color: $white;
+        margin: 0.3125rem 0;
+        transition: 0.3s;
+        border-radius: 0.1875rem;
+    }
+}
+
+// Стили шапки
+header {
+    grid-row: 1;
+    background-color: $primary-color;
+    padding: 1rem 0;
+    @include flex-center;
+    position: relative;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+
+    .header-content {
+        width: 100%;
+        max-width: 1200px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+    }
+}
+
+// Навигация
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    margin-left: -8rem;
+
+    a {
+        color: $white;
+        text-decoration: none;
+        font-size: 1.1rem;
+        transition: color 0.3s;
+        font-family: $font-montserrat;
+
+        &:hover {
+            color: $primary-light;
+        }
+    }
+}
+
+.social-links {
+    display: none;
+}
+
+// Социальные иконки
+.social-icons {
+    display: flex;
+    gap: 1.3rem;
+    align-items: center;
+    margin-right: -8rem;
+
+    .phone-number {
+        color: $white;
+        text-decoration: none;
+        font-family: $font-comfortaa;
+        font-size: 1.1rem;
+        margin-right: 1rem;
+        
+        &:hover {
+            color: $primary-light;
+        }
+    }
+
+    img {
+        width: 2rem;
+        height: 2rem;
+        transition: transform 0.3s;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+// Основной контент
+.achievements-main {
+    padding-top: 2rem;
+}
+
+// Секция hero
+.hero-section {
+    @include section-padding;
+    text-align: center;
+    
+    h1 {
+        color: $primary-color;
+        font-family: $font-montserrat;
+        font-size: 3.2em;
+        margin-bottom: 1rem;
+        font-weight: 700;
+    }
+
+    .hero-description {
+        color: $primary-color;
+        font-size: 1.4em;
+        max-width: 800px;
+        margin: 0 auto;
+        font-family: $font-montserrat;
+    }
+}
+
+// Секция видео
+.video-section {
+    @include section-padding;
+    text-align: center;
+
+    h2 {
+        color: $primary-color;
+        font-family: $font-montserrat;
+        font-size: 2.5em;
+        margin-bottom: 2rem;
+    }
+
+    .video-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba($primary-color, 0.2);
+
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+}
+
+// Сетка достижений
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .achievement-card {
+        background: rgba($white, 0.9);
+        padding: 2rem;
+        border-radius: 20px;
+        text-align: center;
+        transition: transform 0.3s;
+        box-shadow: 0 5px 15px rgba($primary-color, 0.1);
+
+        &:hover {
+            transform: translateY(-10px);
+        }
+
+        .achievement-icon {
+            font-size: 3em;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            color: $primary-color;
+            font-family: $font-montserrat;
+            font-size: 1.5em;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: rgba($black, 0.8);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .year {
+            display: inline-block;
+            background: $primary-color;
+            color: $white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+    }
+}
+
+// Секция статистики
+.stats-section {
+    @include section-padding;
+    background: $primary-color;
+    margin: 4rem 0;
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: center;
+
+    .stat-item {
+        color: $white;
+
+        .stat-number {
+            font-size: 3em;
+            font-weight: 700;
+            font-family: $font-montserrat;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+    }
+}
+
+// Кнопка прокрутки вверх
+#scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: $primary-color;
+    color: $white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    @include flex-center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    border: none;
+    box-shadow: 0 2px 10px rgba($black, 0.2);
+
+    &:hover {
+        background-color: darken($primary-color, 10%);
+    }
+
+    .arrow-up {
+        font-size: 24px;
+        line-height: 1;
+    }
+}
+
+// Медиа-запросы
+@media screen and (max-width: 1024px) {
+    .hero-section {
+        h1 {
+            font-size: 2.8em;
+        }
+    }
+
+    .video-container {
+        margin: 0 1rem;
+    }
+
+    .achievements-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        background: none;
+    }
+
+    .hamburger {
+        display: block;
+
+        span {
+            background-color: $primary-color;
+        }
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 40%;
+        height: 100vh;
+        background-color: rgba($primary-color, 0.95);
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+        transition: 0.3s;
+        z-index: 1001;
+
+        > a {
+            padding: 0.3rem 1.875rem;
+            font-size: 1.2rem;
+            text-align: left;
+            width: 100%;
+
+            &:first-of-type {
+                margin-top: 3.75rem;
+            }
+        }
+
+        .social-links {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 0;
+            width: 100%;
+            padding: 0 1.875rem;
+            display: block;
+
+            a {
+                color: $white;
+                text-decoration: none;
+                font-size: 1.1rem;
+                padding: 0.5rem 0;
+                display: block;
+                text-align: left;
+                font-family: $font-montserrat;
+
+                &:first-child {
+                    font-family: $font-comfortaa;
+                    letter-spacing: 0.5px;
+                    font-size: 0.85rem;
+                }
+            }
+        }
+    }
+
+    .social-icons {
+        display: none;
+    }
+
+    #menu-toggle:checked {
+        ~ .nav-links {
+            right: 0;
+        }
+
+        ~ .hamburger {
+            span {
+                background-color: $white;
+                margin: 0;
+                position: absolute;
+                top: 50%;
+
+                &:nth-child(1) {
+                    transform: rotate(45deg) translate(0.35rem, 0.35rem);
+                }
+
+                &:nth-child(2) {
+                    opacity: 0;
+                }
+
+                &:nth-child(3) {
+                    transform: rotate(-45deg) translate(0.35rem, -0.35rem);
+                }
+            }
+        }
+    }
+
+    .achievements-main {
+        padding-top: 5rem;
+    }
+
+    .hero-section {
+        h1 {
+            font-size: 2.2em;
+        }
+
+        .hero-description {
+            font-size: 1.2em;
+        }
+    }
+
+    .video-section {
+        h2 {
+            font-size: 2em;
+        }
+    }
+
+    .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero-section {
+        padding: 2rem 1rem;
+
+        h1 {
+            font-size: 1.8em;
+        }
+    }
+
+    .video-section {
+        padding: 2rem 1rem;
+
+        h2 {
+            font-size: 1.6em;
+        }
+    }
+
+    .stats-section {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+    }
+} 
