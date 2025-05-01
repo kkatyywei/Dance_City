@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aboutPage>
+    <!-- Основная информация -->
+    <mainInfo>
+        <title>О нашем клубе</title>
+        <description>Мы - это творческое пространство, где каждый может раскрыть свой танцевальный потенциал. Наш клуб объединяет профессиональных преподавателей и увлеченных танцоров всех возрастов.</description>
+    </mainInfo>
+
+    <!-- Галерея изображений -->
+    <mainGallery>
+        <image>
+            <path>images/pom-kids.jpg</path>
+            <alt>Танцевальный коллектив</alt>
+            <category>main</category>
+        </image>
+        <image>
+            <path>images/juniors-heart.jpg</path>
+            <alt>Выступление</alt>
+            <category>main</category>
+        </image>
+        <image>
+            <path>images/pom-adaults.jpg</path>
+            <alt>Соревнования</alt>
+            <category>main</category>
+        </image>
+        <image>
+            <path>images/juniors-contemp.jpg</path>
+            <alt>Постановка</alt>
+            <category>main</category>
+        </image>
+    </mainGallery>
+
+    <!-- Достижения -->
+    <achievements>
+        <title>Наши достижения</title>
+        <description>Наши ученики регулярно участвуют в соревнованиях и конкурсах различного уровня, занимая призовые места. Мы гордимся каждым достижением и продолжаем развиваться, чтобы делиться своим опытом и страстью к танцу.</description>
+    </achievements>
+
+    <!-- Локация -->
+    <location>
+        <title>Локация</title>
+        <description>Мы находимся в удобной транспортной доступности</description>
+        <address>
+            <venue>ЦДОДиМ "Виктория"</venue>
+            <street>ул. Уральская, д. 41</street>
+            <room>каб 221</room>
+            <city>г. Минск</city>
+        </address>
+        <map>
+            <embedUrl>https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2350.4938344547754!2d27.624251800000003!3d53.9052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbce5a6e64e809%3A0x16b202806fe30510!2sUlitsa%20Ural%27skaya%2041%2C%20Minsk%2C%20Minskaja%20voblas%C4%87%20220037!5e0!3m2!1sen!2sby!4v1746002759124!5m2!1sen!2sby</embedUrl>
+        </map>
+    </location>
+
+    <!-- Фотогалерея -->
+    <photoGallery>
+        <image>
+            <path>images/kids-pom.jpg</path>
+            <alt>Команда Pom Kids</alt>
+            <category>team</category>
+        </image>
+        <image>
+            <path>images/polina.jpg</path>
+            <alt>Команда Juniors Heart</alt>
+            <category>team</category>
+        </image>
+        <image>
+            <path>images/juniors-jaz.jpg</path>
+            <alt>Команда Pom Adults</alt>
+            <category>team</category>
+        </image>
+        <image>
+            <path>images/ingigo.jpg</path>
+            <alt>Команда Juniors Contemporary</alt>
+            <category>team</category>
+        </image>
+        <image>
+            <path>images/talisman.png</path>
+            <alt>Танцевальная вечеринка</alt>
+            <category>events</category>
+        </image>
+        <image>
+            <path>images/vasilki.jpg</path>
+            <alt>Танцевальная команда</alt>
+            <category>team</category>
+        </image>
+        <image>
+            <path>images/dragons.png</path>
+            <alt>Сольное выступление</alt>
+            <category>performance</category>
+        </image>
+        <image>
+            <path>images/vika-lera.jpg</path>
+            <alt>Парное выступление</alt>
+            <category>performance</category>
+        </image>
+        <image>
+            <path>images/liana-masha.jpg</path>
+            <alt>Командное выступление</alt>
+            <category>performance</category>
+        </image>
+        <image>
+            <path>images/doubles.jpg</path>
+            <alt>Танцевальное шоу</alt>
+            <category>performance</category>
+        </image>
+    </photoGallery>
+
+    <!-- Контактная информация -->
+    <contacts>
+        <phone>+375333511700</phone>
+        <socialMedia>
+            <vk>
+                <url>https://vk.com/dancecityteam</url>
+                <icon>images/vk-icon.svg</icon>
+            </vk>
+            <instagram>
+                <url>https://www.instagram.com/dancecity_team</url>
+                <icon>images/insta-icon.svg</icon>
+            </instagram>
+            <viber>
+                <url>viber://chat?number=+375333511700</url>
+                <icon>images/viber-icon.svg</icon>
+            </viber>
+            <telegram>
+                <url>https://t.me/k_katyywei</url>
+                <icon>images/tg-icon.svg</icon>
+            </telegram>
+        </socialMedia>
+    </contacts>
+</aboutPage>

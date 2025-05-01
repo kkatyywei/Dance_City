@@ -4,13 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/logo.png">
     <title>Тренеры - Танцевальная студия</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="trainers-styles.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Comfortaa:wght@400;500;600&family=Philosopher:wght@400;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="stylesheet" href="css/trainers-styles.css">
 </head>
 
 <body>
@@ -26,6 +28,7 @@
                 <a href="курсовая.html">Главная</a>
                 <a href="about.html">О нас</a>
                 <a href="trainers.html">Тренеры</a>
+                <a href="курсовая.html#signup-section">Записаться</a>
                 <div class="social-links">
                     <a href="tel:+375333511700">+375 (33) 351-17-00</a>
                     <a href="https://vk.com/dancecityteam" target="_blank">ВКонтакте</a>
@@ -103,38 +106,48 @@
         </section>
 
         <section class="slider-section">
-            <h2>Фотогалерея</h2>
             <div class="slider-container">
                 <div class="slider">
-                    <div class="slide">
-                        <img src="images/1.jpg" alt="Тренировка 1">
+                    <input type="radio" name="radio-btn" id="radio1" checked>
+                    <input type="radio" name="radio-btn" id="radio2">
+                    <input type="radio" name="radio-btn" id="radio3">
+                    <input type="radio" name="radio-btn" id="radio4">
+                    <input type="radio" name="radio-btn" id="radio5">
+
+                    <!-- Слайды -->
+                    <div class="slide first">
+                        <img src="images/1.jpg" alt="Слайд 1">
                     </div>
                     <div class="slide">
-                        <img src="images/2.jpg" alt="Тренировка 2">
+                        <img src="images/2.jpg" alt="Слайд 2">
                     </div>
                     <div class="slide">
-                        <img src="images/4.jpg" alt="Тренировка 4">
+                        <img src="images/4.jpg" alt="Слайд 3">
                     </div>
                     <div class="slide">
-                        <img src="images/5.jpg" alt="Тренировка 5">
+                        <img src="images/5.jpg" alt="Слайд 4">
                     </div>
                     <div class="slide">
-                        <img src="images/6.jpg" alt="Тренировка 5">
+                        <img src="images/6.jpg" alt="Слайд 5">
                     </div>
-                    <div class="slide">
-                        <img src="images/7.jpg" alt="Тренировка 5">
-                    </div>
-                    <div class="slide">
-                        <img src="images/8.jpg" alt="Тренировка 5">
+
+                    <!-- Автоматическая навигация -->
+                    <div class="navigation-auto">
+                        <div class="auto-btn1"></div>
+                        <div class="auto-btn2"></div>
+                        <div class="auto-btn3"></div>
+                        <div class="auto-btn4"></div>
+                        <div class="auto-btn5"></div>
                     </div>
                 </div>
-                <button class="slider-button prev">&#10094;</button>
-                <button class="slider-button next">&#10095;</button>
-                <div class="slider-dots">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
+
+                <!-- Ручная навигация -->
+                <div class="navigation-manual">
+                    <label for="radio1" class="manual-btn"></label>
+                    <label for="radio2" class="manual-btn"></label>
+                    <label for="radio3" class="manual-btn"></label>
+                    <label for="radio4" class="manual-btn"></label>
+                    <label for="radio5" class="manual-btn"></label>
                 </div>
             </div>
         </section>

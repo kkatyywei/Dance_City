@@ -4,7 +4,50 @@ document.getElementById('menu-toggle').addEventListener('change', function() {
     document.body.classList.toggle('menu-open', this.checked);
 });
 
-// Показать стрелку при прокрутке вниз и скрыть при возврате вверх
+// Обработка отправки формы
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('.signup-form');
+    const modal = document.getElementById('thankYouModal');
+    const modalClose = document.querySelector('.modal-close');
+
+    if (form && modal) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            modal.style.display = 'flex';
+            form.reset();
+        });
+
+        modalClose.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    }
+
+    // Обработчик кликов для блоков направлений
+    const directionContents = document.querySelectorAll('.direction-content');
+    directionContents.forEach(content => {
+        content.addEventListener('click', function() {
+            if (window.innerWidth <= 1024) {
+                this.classList.toggle('text-visible');
+            }
+        });
+    });
+
+    // Кнопка прокрутки наверх
+    const btn = document.getElementById('scroll-top');
+    if (btn) {
+        btn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+});
+
+// Показать/скрыть кнопку прокрутки при скролле
 window.addEventListener('scroll', function() {
     const btn = document.getElementById('scroll-top');
     if (!btn) return;
@@ -17,52 +60,23 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Плавная прокрутка вверх по клику на стрелку
-document.addEventListener('DOMContentLoaded', function() {
-    const btn = document.getElementById('scroll-top');
-    if (!btn) return;
-    btn.addEventListener('click', function() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+// Скрытие/показ шапки при скролле
+let lastScrollTop = 0;
+const header = document.querySelector('header');
+const scrollThreshold = 50;
 
-    // Обработчик кликов для блоков направлений
-    const directionContents = document.querySelectorAll('.direction-content');
-    directionContents.forEach(content => {
-        content.addEventListener('click', function() {
-            if (window.innerWidth <= 1024) {
-                this.classList.toggle('text-visible');
-            }
-        });
-    });
+window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    // Обработка кликов по карточкам направлений
-    const directionCards = document.querySelectorAll('.direction-content');
+    if (Math.abs(scrollTop - lastScrollTop) <= scrollThreshold) return;
 
-    directionCards.forEach(card => {
-        card.addEventListener('click', function() {
-            if (window.innerWidth <= 1024) {
-                this.classList.toggle('text-visible');
-            }
-        });
-    });
-
-    // Всплывающее сообщение при отправке формы
-    const form = document.querySelector('form');
-    const toast = document.getElementById('toast-message');
-    if (form && toast) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            toast.textContent = 'Спасибо! Ваша заявка успешно отправлена!';
-            toast.classList.add('show');
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
-            form.reset();
-        });
+    if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
+        header.style.transform = 'translateY(-100%)';
+    } else {
+        header.style.transform = 'translateY(0)';
     }
 
-    // Инициализация слайдера
-    initSlider();
+    lastScrollTop = scrollTop;
 });
 
 // Слайдер
@@ -182,22 +196,4 @@ function toggleTextVisibility(event) {
 
 // Вызываем функцию при загрузке и при изменении размера окна
 document.addEventListener('DOMContentLoaded', handleDirectionCards);
-window.addEventListener('resize', handleDirectionCards);
-
-// Функционал кнопки прокрутки наверх
-const scrollTopButton = document.getElementById('scroll-top');
-
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        scrollTopButton.classList.add('visible');
-    } else {
-        scrollTopButton.classList.remove('visible');
-    }
-});
-
-scrollTopButton.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-}); 
+window.addEventListener('resize', handleDirectionCards); 

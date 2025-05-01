@@ -716,7 +716,7 @@ button, .direction-content, #scroll-top, .main-image, .text-block, .hamburger, .
     }
     
     .info-section {
-        margin-top: -25em;
+        margin-top: -20em;
         padding: 2rem 0;
     }
 
@@ -739,6 +739,10 @@ button, .direction-content, #scroll-top, .main-image, .text-block, .hamburger, .
         transition: opacity 0.3s ease;
     }
 
+    .direction-card h3{
+        font-size: 1.2em;
+    }
+
     .direction-text {
         position: absolute;
         top: 0;
@@ -756,12 +760,8 @@ button, .direction-content, #scroll-top, .main-image, .text-block, .hamburger, .
         transition: opacity 0.3s ease;
     }
 
-    .direction-content.text-visible img {
-        opacity: 0;
-    }
-
-    .direction-content.text-visible .direction-text {
-        opacity: 1;
+    .direction-text p{
+        font-size: 82%;
     }
 }
 
@@ -1091,7 +1091,7 @@ button, .direction-content, #scroll-top, .main-image, .text-block, .hamburger, .
     }
 
     .info-section {
-        margin-top: -19rem;
+        margin-top: -89%;
         margin-bottom: 5%;
     }
 
@@ -1142,31 +1142,12 @@ button, .direction-content, #scroll-top, .main-image, .text-block, .hamburger, .
 }
 
 /* Стили для десктопа (больше 1024px) */
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1024px) {
     .direction-content:hover img {
         opacity: 0;
     }
     
     .direction-content:hover .direction-text {
-        opacity: 1;
-    }
-}
-
-/* Стили для планшетов и мобильных */
-@media screen and (max-width: 1024px) {
-    .direction-content {
-        min-height: fit-content;
-    }
-
-    .direction-content img {
-        opacity: 1;
-    }
-
-    .direction-content.text-visible img {
-        opacity: 0;
-    }
-
-    .direction-content.text-visible .direction-text {
         opacity: 1;
     }
 }

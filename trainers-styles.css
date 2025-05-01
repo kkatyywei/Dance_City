@@ -148,16 +148,21 @@ header {
     outline: none;
 }
 
-#scroll-top:focus {
-    outline: none;
-}
-
 #scroll-top i {
     font-size: 24px;
     line-height: 1;
     color: white;
     user-select: none;
     pointer-events: none;
+}
+
+#scroll-top:hover {
+    background-color: #9c4aa3;
+    transform: translateY(-3px);
+}
+
+#scroll-top:focus {
+    outline: none;
 }
 
 .trainers-main {
@@ -591,14 +596,7 @@ header {
     padding: 4rem 0;
     background-color: transparent;
     position: relative;
-}
-
-.slider-section h2 {
-    color: #7C3882;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.5em;
-    text-align: center;
-    margin-bottom: 2rem;
+    overflow: hidden;
 }
 
 .slider-container {
@@ -610,218 +608,156 @@ header {
 }
 
 .slider {
-    display: flex;
-    width: 600%;
-    transition: transform 0.5s ease-in-out;
+    width: 500%;
     height: 100%;
+    display: flex;
+    position: relative;
+}
+
+.slider input {
+    display: none;
 }
 
 .slide {
-    flex: 0 0 16.666%;
+    width: 20%;
     height: 100%;
+    transition: 0.6s ease;
+    flex-shrink: 0;
 }
 
 .slide img {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 10px;
-    background-color: transparent;
+    height: auto;
+    object-fit: cover;
 }
 
-/* Медиа-запросы для слайдера */
-@media screen and (min-width: 1024px) {
-    .slider-container {
-        max-width: 800px;
-        height: 500px;
-    }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-    .slider-container {
-        max-width: 600px;
-        height: auto;
-    }
-
-    .slider-button {
-        width: 2.8rem;
-        height: 2.8rem;
-        padding: 0.8rem;
-        font-size: 1.3rem;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .slider-container {
-        max-width: 90%;
-        height: 250px;
-    }
-
-    .slider-button {
-        width: 2.5rem;
-        height: 2.5rem;
-        padding: 0.75rem;
-        font-size: 1.2rem;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .slider-container {
-        max-width: 95%;
-        height: 200px;
-    }
-
-    .slider-button {
-        width: 2rem;
-        height: 2rem;
-        padding: 0.5rem;
-        font-size: 1rem;
-    }
-}
-
-/* Добавляем копию первого слайда в конец */
-.slider::after {
-    content: '';
-    flex: 0 0 16.666%;
-}
-
-/* Анимация для автоматической прокрутки */
-@keyframes autoSlide {
-    0% {
-        transform: translateX(0);
-    }
-    20% {
-        transform: translateX(-16.666%);
-    }
-    40% {
-        transform: translateX(-33.332%);
-    }
-    60% {
-        transform: translateX(-49.998%);
-    }
-    80% {
-        transform: translateX(-66.664%);
-    }
-    100% {
-        transform: translateX(-83.33%);
-    }
-}
-
-.slider.auto-slide {
-    animation: autoSlide 25s infinite linear;
-}
-
-.slider.auto-slide:hover {
-    animation-play-state: paused;
-}
-
-.slider-button {
+/* Навигация */
+.navigation-manual {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(124, 56, 130, 0.7);
-    color: white;
-    border: none;
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-    cursor: pointer;
+    width: 800px;
+    margin-top: -40px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
-    z-index: 2;
-    padding: 1rem;
-    font-size: 2rem;
+    gap: 20px;
 }
 
-.slider-button:hover {
-    background-color: rgba(124, 56, 130, 0.9);
-}
-
-.prev {
-    left: 2%;
-}
-
-.next {
-    right: 2%;
-}
-
-.slider-dots {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    z-index: 2;
-}
-
-.dot {
-    width: 0.75rem;
-    height: 0.75rem;
-    background-color: rgba(124, 56, 130, 0.3);
-    border-radius: 50%;
+.manual-btn {
+    border: 2px solid #7C3882;
+    padding: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: 0.3s;
     user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+    outline: none;
 }
 
-.dot.active {
-    background-color: #7C3882;
+.manual-btn:hover {
+    background: #7C3882;
 }
 
-/* Медиа-запросы для кнопок */
+.manual-btn:focus {
+    outline: none;
+}
+
+/* CSS для автоматического переключения */
+#radio1:checked ~ .first {
+    margin-left: 0;
+}
+
+#radio2:checked ~ .first {
+    margin-left: -20%;
+}
+
+#radio3:checked ~ .first {
+    margin-left: -40%;
+}
+
+#radio4:checked ~ .first {
+    margin-left: -60%;
+}
+
+#radio5:checked ~ .first {
+    margin-left: -80%;
+}
+
+/* Навигационные точки */
+.navigation-auto {
+    position: absolute;
+    display: flex;
+    width: 800px;
+    justify-content: center;
+    margin-top: 460px;
+    gap: 20px;
+}
+
+.navigation-auto div {
+    border: 2px solid #7C3882;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1,
+#radio2:checked ~ .navigation-auto .auto-btn2,
+#radio3:checked ~ .navigation-auto .auto-btn3,
+#radio4:checked ~ .navigation-auto .auto-btn4,
+#radio5:checked ~ .navigation-auto .auto-btn5 {
+    background: #7C3882;
+}
+
+.navigation-auto div:focus {
+    outline: none;
+}
+
+/* Медиа-запросы для адаптивности */
 @media screen and (max-width: 1024px) {
     .slider-container {
         max-width: 600px;
+        height: 400px;
     }
-    .slider-button {
-        width: 3.5rem;
-        height: 3.5rem;
-        font-size: 1.8rem;
-    }
-    .prev {
-        left: 3%;
-    }
-    .next {
-        right: 3%;
+    .navigation-manual,
+    .navigation-auto {
+        width: 600px;
     }
 }
 
 @media screen and (max-width: 768px) {
     .slider-container {
         max-width: 90%;
+        height: 300px;
     }
-    .slider-button {
-        width: 3rem;
-        height: 3rem;
-        font-size: 1.5rem;
-    }
-    .prev {
-        left: 4%;
-    }
-    .next {
-        right: 4%;
+    .navigation-manual,
+    .navigation-auto {
+        width: 90%;
     }
 }
 
 @media screen and (max-width: 480px) {
     .slider-container {
-        max-width: 95%;
+        height: 200px;
     }
-    .slider-button {
-        width: 2.5rem;
-        height: 2.5rem;
-        font-size: 1.2rem;
+    .manual-btn,
+    .navigation-auto div {
+        padding: 4px;
     }
-    .prev {
-        left: 5%;
-    }
-    .next {
-        right: 5%;
-    }
+}
+
+/* Удаляем любые анимации автопрокрутки */
+.slider.auto-slide {
+    animation: none;
+}
+
+/* Удаляем все стили, которые могут вызывать дублирование */
+.slider::after,
+.slider::before {
+    display: none;
+    content: none;
+}
+
+/* Скрываем radio кнопки */
+.slider input[type="radio"] {
+    display: none;
 } 

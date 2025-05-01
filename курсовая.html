@@ -5,6 +5,7 @@
     <title>Dance City</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
@@ -27,6 +28,7 @@
                 <a href="курсовая.html">Главная</a>
                 <a href="about.html">О нас</a>
                 <a href="trainers.html">Тренеры</a>
+                <a href="#signup-section">Записаться</a>
                 <div class="social-links">
                     <a href="tel:+375333511700">+375 (33) 351-17-00</a>
                     <a href="https://vk.com/dancecityteam" target="_blank">ВКонтакте</a>
@@ -129,10 +131,10 @@
         </div>
     </section>
 
-    <section class="signup-section">
+    <section class="signup-section" id="signup-section">
         <div class="signup-container">
             <h2 class="signup-title">Запись на пробное занятие</h2>
-            <form class="signup-form">
+            <form class="signup-form" id="signup-form" action="send_form.php" method="POST">
                 <div class="form-group">
                     <label for="parent-name">ФИО родителя</label>
                     <input type="text" id="parent-name" name="parent-name" required>
@@ -142,9 +144,8 @@
                     <input type="text" id="child-name" name="child-name" required>
                 </div>
                 <div class="form-group">
-                    <label for="phone">Номер телефона родителя</label>
-                    <input type="tel" id="phone" name="phone" pattern="[0-9+\s-()]+" placeholder="+375XXXXXXXXX"
-                        required>
+                    <label for="email">Электронная почта родителя</label>
+                    <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
                     <label for="birth-year">Год рождения ребенка</label>
@@ -169,34 +170,71 @@
         </div>
     </div>
     <script>
-
         // Обработка отправки формы
-        const form = document.querySelector('.signup-form');
-        const modal = document.getElementById('thankYouModal');
-        const modalClose = document.querySelector('.modal-close');
-
-        form.addEventListener('submit', function (e) {
+        document.getElementById('signup-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            modal.style.display = 'flex';
-            form.reset();
+            
+            const formData = new FormData(this);
+            
+            // Показываем индикатор загрузки или блокируем кнопку
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = 'Отправка...';
+            submitBtn.disabled = true;
+            
+            fetch('send_form.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const modal = document.getElementById('thankYouModal');
+                const modalMessage = modal.querySelector('p');
+                modalMessage.textContent = data.message;
+                modal.style.display = 'flex';
+                
+                if (data.status === 'success') {
+                    this.reset();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                const modal = document.getElementById('thankYouModal');
+                const modalMessage = modal.querySelector('p');
+                modalMessage.textContent = 'Произошла ошибка при отправке формы. Пожалуйста, попробуйте позже.';
+                modal.style.display = 'flex';
+            })
+            .finally(() => {
+                // Восстанавливаем кнопку
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            });
         });
 
-        modalClose.addEventListener('click', function () {
-            modal.style.display = 'none';
+        const modalClose = document.querySelector('.modal-close');
+        modalClose.addEventListener('click', function() {
+            document.getElementById('thankYouModal').style.display = 'none';
         });
 
-        window.addEventListener('click', function (e) {
+        window.addEventListener('click', function(e) {
+            const modal = document.getElementById('thankYouModal');
             if (e.target === modal) {
                 modal.style.display = 'none';
             }
         });
-        document.getElementById('menu-toggle').addEventListener('change', function () {
+
+        document.getElementById('menu-toggle').addEventListener('change', function() {
             document.documentElement.classList.toggle('menu-open', this.checked);
             document.body.classList.toggle('menu-open', this.checked);
         });
 
         // Показать стрелку при прокрутке вниз и скрыть при возврате вверх
-        window.addEventListener('scroll', function () {
+        window.addEventListener('scroll', function() {
             const btn = document.getElementById('scroll-top');
             if (!btn) return;
             if (window.pageYOffset > 100) {
@@ -209,14 +247,13 @@
         });
 
         // Плавная прокрутка вверх по клику на стрелку
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const btn = document.getElementById('scroll-top');
             if (!btn) return;
-            btn.addEventListener('click', function () {
+            btn.addEventListener('click', function() {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
-
 
         let lastScrollTop = 0;
         const header = document.querySelector('header');
@@ -226,7 +263,7 @@
         const directionCards = document.querySelectorAll('.direction-content');
 
         directionCards.forEach(card => {
-            card.addEventListener('click', function () {
+            card.addEventListener('click', function() {
                 if (window.innerWidth <= 768) {
                     const img = this.querySelector('img');
                     const text = this.querySelector('.direction-text');
@@ -241,32 +278,6 @@
                 }
             });
         });
-
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-            if (Math.abs(scrollTop - lastScrollTop) <= scrollThreshold) return;
-
-            if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
-                // Прокрутка вниз
-                header.classList.add('hidden');
-            } else {
-                // Прокрутка вверх
-                header.classList.remove('hidden');
-            }
-
-            lastScrollTop = scrollTop;
-        });
-
-        const scrollTopBtn = document.getElementById('scroll-top');
-        scrollTopBtn.addEventListener('click', function () {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
     </script>
 </body>
-
 </html>
-<script src="script.js"></script>
