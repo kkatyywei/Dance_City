@@ -46,11 +46,8 @@ header {
     color: #FCD7FF;
 }
 
-
-.right-section {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+.social-links {
+    display: none;
 }
 
 /* Иконки социальных сетей */
@@ -70,10 +67,6 @@ header {
     transform: scale(1.1);
 }
 
-.social-links{
-    display: none;
-}
-
 .phone-number {
     color: white;
     text-decoration: none;
@@ -86,14 +79,39 @@ header {
     color: #FCD7FF;
 }
 
-/* Стили мобильного меню */
 #menu-toggle {
-    display: none;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    left: -9999px;
+    top: -9999px;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
 }
 
 /* Кнопка гамбургер-меню */
 .hamburger {
     display: none;
+    cursor: pointer;
+    padding: 0.625rem;
+    background: none;
+    border: none;
+    position: fixed;
+    z-index: 1002;
+    right: 1.25rem;
+    top: 0.9rem;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 /* Полоски гамбургер-меню */
@@ -107,24 +125,10 @@ header {
     border-radius: 0.1875rem;
 }
 
-#menu-toggle:checked ~ .hamburger span:nth-child(1) {
-    transform: rotate(45deg);
-    position: absolute;
-    top: 50%;
-    margin: 0;
-}
 
-#menu-toggle:checked ~ .hamburger span:nth-child(2) {
-    opacity: 0;
+#menu-toggle:checked ~ .hamburger span {
+    background-color: white;
 }
-
-#menu-toggle:checked ~ .hamburger span:nth-child(3) {
-    transform: rotate(-45deg);
-    position: absolute;
-    top: 50%;
-    margin: 0;
-}
-
 #scroll-top {
     position: fixed;
     bottom: 30px;
@@ -149,21 +153,43 @@ header {
 }
 
 #scroll-top i {
-    font-size: 24px;
-    line-height: 1;
-    color: white;
-    user-select: none;
-    pointer-events: none;
+    user-select: none !important;
+    pointer-events: none !important;
+    outline: none !important;
+    caret-color: transparent !important;
 }
 
-#scroll-top:hover {
+#toast-message {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #7C3882;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 1.2rem;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s, top 0.4s;
+    display: block;
+}
+
+#toast-message.show {
+    opacity: 1;
+    top: 60px;
+    pointer-events: auto;
+}
+/*#scroll-top:hover {
     background-color: #9c4aa3;
     transform: translateY(-3px);
 }
 
 #scroll-top:focus {
     outline: none;
-}
+}*/
 
 .trainers-main {
     padding: 2rem 1.25rem;
@@ -392,14 +418,6 @@ header {
 }
 
 @media screen and (max-width: 768px) {
-    .phone-number {
-        display: none;
-    }
-
-    .right-section {
-        display: none;
-    }
-
     header {
         position: fixed;
         top: 0;
@@ -408,6 +426,10 @@ header {
         z-index: 1000;
         padding: 1rem 0;
         background: none;
+    }
+
+    .social-icons{
+        display: none;
     }
 
     .header-content {
@@ -461,8 +483,10 @@ header {
         display: block;
     }
 
-    .social-icons{
-        display: none;
+    .nav-links .social-links a:first-child {
+        font-family: 'Comfortaa', cursive;
+        letter-spacing: 0.5px;
+        font-size: 0.85rem;
     }
 
     .hamburger {
@@ -475,19 +499,18 @@ header {
         z-index: 1002;
         right: 2rem;
         top: 1.3rem;
-        width: 1.2rem;
+        width: 1.5rem;
         height: 1.2rem;
     }
 
     .hamburger span {
         display: block;
-        width: 1.2rem;
-        height: 0.15rem;
+        width: 1.5rem;
+        height: 0.2rem;
         background-color: #7C3882;
         margin: 0.25rem 0;
         transition: 0.3s;
         border-radius: 0.1875rem;
-        transform-origin: center;
     }
 
     #menu-toggle:checked ~ .nav-links {
@@ -496,6 +519,9 @@ header {
 
     #menu-toggle:checked ~ .hamburger span {
         background-color: white;
+        margin: 0;
+        position: absolute;
+        top: 50%;
     }
 
     #menu-toggle:checked ~ .hamburger span:nth-child(1) {
@@ -510,9 +536,9 @@ header {
         transform: rotate(-45deg);
     }
 
+
     .trainers-main {
-        margin-top: 5rem;
-        padding-top: 2rem;
+        padding-top: 4.5rem !important;
     }
 
     .trainers-hero h1 {
@@ -570,6 +596,10 @@ header {
         height: 2.5rem;
         padding: 0.75rem;
         font-size: 1.2rem;
+    }
+
+    #scroll-top {
+        display: none !important;
     }
 }
 
