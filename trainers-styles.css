@@ -855,4 +855,50 @@ header {
 /* Скрываем radio кнопки */
 .slider input[type="radio"] {
     display: none;
+}
+
+.site-footer {
+    background: #7C3882;
+    color: #fff;
+    padding: 3.5rem 1rem 2rem 1rem;
+    text-align: center;
+    margin-top: 4rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25em;
+    line-height: 1.7;
+}
+.site-footer .footer-nav,
+.site-footer .footer-social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+.site-footer a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: color 0.2s;
+    letter-spacing: 0.03em;
+}
+.site-footer a:hover {
+    color: #FCD7FF;
+}
+.footer-copy {
+    font-size: 1.05em;
+    opacity: 0.85;
+    margin-top: 1.5rem;
+}
+@media (max-width: 600px) {
+    .site-footer .footer-nav,
+    .site-footer .footer-social {
+        gap: 1.2rem;
+        flex-direction: column;
+    }
+    .site-footer {
+        font-size: 1em;
+        padding: 2rem 0.5rem 1.2rem 0.5rem;
+    }
 } 

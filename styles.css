@@ -103,6 +103,7 @@ header {
     color: #FCD7FF;
 }
 
+
 /* Стили заголовка */
 h1 {
     font-family: 'Montserrat', sans-serif;
@@ -243,7 +244,7 @@ h1 span {
     position: fixed;
     z-index: 1002;
     right: 1.25rem;
-    top: 0.9375rem;
+    top: 0.9rem;
     outline: none;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
@@ -871,14 +872,14 @@ button, .direction-content, #scroll-top, .main-image, .text-block, .hamburger, .
         z-index: 1002;
         right: 2rem;
         top: 1.3rem;
-        width: 1.2rem;
+        width: 1.5rem;
         height: 1.2rem;
     }
 
     .hamburger span {
         display: block;
-        width: 1.2rem;
-        height: 0.15rem;
+        width: 1.5rem;
+        height: 0.2rem;
         background-color: #7C3882;
         margin: 0.25rem 0;
         transition: 0.3s;
@@ -1154,5 +1155,51 @@ button, .direction-content, #scroll-top, .main-image, .text-block, .hamburger, .
     
     .direction-content:hover .direction-text {
         opacity: 1;
+    }
+}
+
+.site-footer {
+    background: #7C3882;
+    color: #fff;
+    padding: 3.5rem 1rem 2rem 1rem;
+    text-align: center;
+    margin-top: 4rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25em;
+    line-height: 1.7;
+}
+.site-footer .footer-nav,
+.site-footer .footer-social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+.site-footer a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: color 0.2s;
+    letter-spacing: 0.03em;
+}
+.site-footer a:hover {
+    color: #FCD7FF;
+}
+.footer-copy {
+    font-size: 1.05em;
+    opacity: 0.85;
+    margin-top: 1.5rem;
+}
+@media (max-width: 600px) {
+    .site-footer .footer-nav,
+    .site-footer .footer-social {
+        gap: 1.2rem;
+        flex-direction: column;
+    }
+    .site-footer {
+        font-size: 1em;
+        padding: 2rem 0.5rem 1.2rem 0.5rem;
     }
 }
