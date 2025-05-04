@@ -1,3 +1,7 @@
+body{
+    overflow-x: hidden;
+}
+
 /* Основные стили страницы тренеров */
 header {
     grid-row: 1;
@@ -312,12 +316,195 @@ header {
     line-height: 1.6;
 }
 
+/* Базовые стили слайдера */
+.slider-section {
+    padding: 4rem 0;
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-container {
+    position: relative;
+    max-width: 800px;
+    height: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slider {
+    width: 500%;
+    height: 100%;
+    display: flex;
+    position: relative;
+}
+
+.slider input {
+    display: none;
+}
+
+.slide {
+    width: 20%;
+    height: 100%;
+    transition: 0.6s ease;
+    flex-shrink: 0;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    aspect-ratio: 16/9;
+    display: block;
+}
+
+/* Навигация */
+.navigation-manual {
+    position: absolute;
+    width: 800px;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.manual-btn {
+    border: 2px solid #7C3882;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    user-select: none;
+    outline: none;
+}
+
+.manual-btn:hover {
+    background: #7C3882;
+}
+
+.manual-btn:focus {
+    outline: none;
+}
+
+/* CSS для автоматического переключения */
+#radio1:checked ~ .first {
+    margin-left: 0;
+}
+
+#radio2:checked ~ .first {
+    margin-left: -20%;
+}
+
+#radio3:checked ~ .first {
+    margin-left: -40%;
+}
+
+#radio4:checked ~ .first {
+    margin-left: -60%;
+}
+
+#radio5:checked ~ .first {
+    margin-left: -80%;
+}
+
+/* Навигационные точки */
+.navigation-auto {
+    position: absolute;
+    display: flex;
+    width: 800px;
+    justify-content: center;
+    margin-top: 460px;
+    gap: 20px;
+}
+
+.navigation-auto div {
+    border: 2px solid #7C3882;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1,
+#radio2:checked ~ .navigation-auto .auto-btn2,
+#radio3:checked ~ .navigation-auto .auto-btn3,
+#radio4:checked ~ .navigation-auto .auto-btn4,
+#radio5:checked ~ .navigation-auto .auto-btn5 {
+    background: #7C3882;
+}
+
+.navigation-auto div:focus {
+    outline: none;
+}
+
+/* Удаляем любые анимации автопрокрутки */
+.slider.auto-slide {
+    animation: none;
+}
+
+/* Удаляем все стили, которые могут вызывать дублирование */
+.slider::after,
+.slider::before {
+    display: none;
+    content: none;
+}
+
+/* Скрываем radio кнопки */
+.slider input[type="radio"] {
+    display: none;
+}
+
+.site-footer {
+    width: 101%;
+    min-width: 0;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+    position: relative;
+    display: block !important;
+    visibility: visible !important;
+    background: #7C3882;
+    color: #fff;
+    padding: 3.5rem 1rem 2rem 1rem;
+    text-align: center;
+    margin-top: 4rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25em;
+    line-height: 1.7;
+}
+.site-footer .footer-nav,
+.site-footer .footer-social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+.site-footer a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: color 0.2s;
+    letter-spacing: 0.03em;
+}
+.site-footer a:hover {
+    color: #FCD7FF;
+}
+.footer-copy {
+    font-size: 1.05em;
+    opacity: 0.85;
+    margin-top: 1.5rem;
+}
+
 /* Адаптивные стили */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
     body {
         margin-top: 0;
         padding-top: 0;
-        width: 100%;
+        width: 101%;
     }
 
     header {
@@ -401,9 +588,7 @@ header {
         flex-grow: 1;
         padding: 0;
     }
-}
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
     .slider-container {
         max-width: 500px;
         height: 350px;
@@ -414,6 +599,15 @@ header {
         height: 2.8rem;
         padding: 0.8rem;
         font-size: 1.3rem;
+    }
+
+    .slider-container {
+        max-width: 600px;
+        height: 400px;
+    }
+    .navigation-manual,
+    .navigation-auto {
+        width: 600px;
     }
 }
 
@@ -601,11 +795,44 @@ header {
     #scroll-top {
         display: none !important;
     }
+
+    .slider-container {
+        max-width: 90%;
+        height: 300px;
+    }
+    .navigation-manual,
+    .navigation-auto {
+        width: 90%;
+    }
+
+    .site-footer {
+        font-size: 0.95em;
+        padding: 2rem 0.5rem 1.2rem 0.5rem;
+    }
+    .site-footer .footer-nav,
+    .site-footer .footer-social {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.2rem;
+        margin-bottom: 1.2rem;
+    }
+    .site-footer a {
+        font-size: 0.95em;
+        padding: 0.3em 0.7em;
+        white-space: nowrap;
+    }
+    .footer-copy {
+        font-size: 0.9em;
+        margin-top: 1rem;
+    }
 }
 
 @media screen and (max-width: 480px) {
     .trainers-hero h1 {
         font-size: 2em;
+        text-align: center;
     }
 
     .trainers-description p {
@@ -633,15 +860,20 @@ header {
     }
 
     .trainer-photo {
-        width: 100%;
-        height: 400px;
+        width: 90%;
+        height: 350px;
         flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .trainer-photo img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        display: block;
+        margin: 0 auto;
     }
 
     .trainer-info {
@@ -684,153 +916,7 @@ header {
         padding: 0.5rem;
         font-size: 1rem;
     }
-}
 
-/* Базовые стили слайдера */
-.slider-section {
-    padding: 4rem 0;
-    background-color: transparent;
-    position: relative;
-    overflow: hidden;
-}
-
-.slider-container {
-    position: relative;
-    max-width: 800px;
-    height: 500px;
-    margin: 0 auto;
-    overflow: hidden;
-}
-
-.slider {
-    width: 500%;
-    height: 100%;
-    display: flex;
-    position: relative;
-}
-
-.slider input {
-    display: none;
-}
-
-.slide {
-    width: 20%;
-    height: 100%;
-    transition: 0.6s ease;
-    flex-shrink: 0;
-}
-
-.slide img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-/* Навигация */
-.navigation-manual {
-    position: absolute;
-    width: 800px;
-    margin-top: -40px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.manual-btn {
-    border: 2px solid #7C3882;
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-    user-select: none;
-    outline: none;
-}
-
-.manual-btn:hover {
-    background: #7C3882;
-}
-
-.manual-btn:focus {
-    outline: none;
-}
-
-/* CSS для автоматического переключения */
-#radio1:checked ~ .first {
-    margin-left: 0;
-}
-
-#radio2:checked ~ .first {
-    margin-left: -20%;
-}
-
-#radio3:checked ~ .first {
-    margin-left: -40%;
-}
-
-#radio4:checked ~ .first {
-    margin-left: -60%;
-}
-
-#radio5:checked ~ .first {
-    margin-left: -80%;
-}
-
-/* Навигационные точки */
-.navigation-auto {
-    position: absolute;
-    display: flex;
-    width: 800px;
-    justify-content: center;
-    margin-top: 460px;
-    gap: 20px;
-}
-
-.navigation-auto div {
-    border: 2px solid #7C3882;
-    padding: 5px;
-    border-radius: 10px;
-    transition: 0.3s;
-    cursor: pointer;
-    user-select: none;
-    outline: none;
-}
-
-#radio1:checked ~ .navigation-auto .auto-btn1,
-#radio2:checked ~ .navigation-auto .auto-btn2,
-#radio3:checked ~ .navigation-auto .auto-btn3,
-#radio4:checked ~ .navigation-auto .auto-btn4,
-#radio5:checked ~ .navigation-auto .auto-btn5 {
-    background: #7C3882;
-}
-
-.navigation-auto div:focus {
-    outline: none;
-}
-
-/* Медиа-запросы для адаптивности */
-@media screen and (max-width: 1024px) {
-    .slider-container {
-        max-width: 600px;
-        height: 400px;
-    }
-    .navigation-manual,
-    .navigation-auto {
-        width: 600px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .slider-container {
-        max-width: 90%;
-        height: 300px;
-    }
-    .navigation-manual,
-    .navigation-auto {
-        width: 90%;
-    }
-}
-
-@media screen and (max-width: 480px) {
     .slider-container {
         height: 200px;
     }
@@ -840,65 +926,72 @@ header {
     }
 }
 
-/* Удаляем любые анимации автопрокрутки */
-.slider.auto-slide {
-    animation: none;
-}
-
-/* Удаляем все стили, которые могут вызывать дублирование */
-.slider::after,
-.slider::before {
-    display: none;
-    content: none;
-}
-
-/* Скрываем radio кнопки */
-.slider input[type="radio"] {
-    display: none;
-}
-
-.site-footer {
-    background: #7C3882;
-    color: #fff;
-    padding: 3.5rem 1rem 2rem 1rem;
-    text-align: center;
-    margin-top: 4rem;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.25em;
-    line-height: 1.7;
-}
-.site-footer .footer-nav,
-.site-footer .footer-social {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 3rem;
-    margin-bottom: 2rem;
-}
-.site-footer a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1em;
-    transition: color 0.2s;
-    letter-spacing: 0.03em;
-}
-.site-footer a:hover {
-    color: #FCD7FF;
-}
-.footer-copy {
-    font-size: 1.05em;
-    opacity: 0.85;
-    margin-top: 1.5rem;
-}
-@media (max-width: 600px) {
-    .site-footer .footer-nav,
-    .site-footer .footer-social {
-        gap: 1.2rem;
+@media screen and (min-width: 500px) and (max-width: 650px) {
+    .trainers-hero h1 {
+        font-size: 2em;
+    }
+    .trainers-description p {
+        font-size: 1.1em;
+    }
+    .trainers-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .trainer-card {
         flex-direction: column;
+        align-items: center;
+        padding: 0;
+        background: #f9e9fb;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(124, 56, 130, 0.1);
+        transition: transform 0.3s ease;
     }
-    .site-footer {
+    .trainer-card:hover {
+        transform: translateY(-5px);
+    }
+    .trainer-photo {
+        width: 300px;
+        height: 300px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .trainer-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
+    }
+    .trainer-info {
+        padding: 1.5rem;
+        width: 100%;
+    }
+    .trainer-info h3 {
+        font-size: 1.2em;
+    }
+    .trainer-role {
         font-size: 1em;
-        padding: 2rem 0.5rem 1.2rem 0.5rem;
     }
-} 
+    .trainer-description {
+        font-size: 0.9em;
+    }
+    .achievements-section h2 {
+        font-size: 1.8em;
+    }
+    .achievements-content p {
+        font-size: 1em;
+    }
+    .slide {
+        height: 250px;
+    }
+    .slider-container {
+        height: 200px;
+    }
+    .slider-button,
+    .navigation-auto div {
+        padding: 4px;
+    }
+}
