@@ -609,6 +609,10 @@ header {
     .navigation-auto {
         width: 600px;
     }
+
+    .site-footer {
+		font-size: 1em;
+	}
 }
 
 @media screen and (max-width: 768px) {
@@ -805,7 +809,7 @@ header {
         width: 90%;
     }
 
-    .site-footer {
+	.site-footer {
         font-size: 0.95em;
         padding: 2rem 0.5rem 1.2rem 0.5rem;
     }
@@ -924,6 +928,24 @@ header {
     .navigation-auto div {
         padding: 4px;
     }
+
+    .site-footer {
+		font-size: 0.85em;
+		padding: 1.2rem 0.2rem 0.7rem 0.2rem;
+	}
+	.site-footer .footer-nav,
+	.site-footer .footer-social {
+		gap: 0.7rem;
+		margin-bottom: 0.7rem;
+	}
+	.site-footer a {
+		font-size: 0.85em;
+		padding: 0.2em 0.4em;
+	}
+	.footer-copy {
+		font-size: 0.8em;
+		margin-top: 0.5rem;
+	}
 }
 
 @media screen and (min-width: 500px) and (max-width: 650px) {

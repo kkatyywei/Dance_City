@@ -374,6 +374,19 @@
         display: none;
     }
 
+	.hero-section h1 {
+		font-size: 2.8em;
+	}
+	.video-container {
+		margin: 0 1rem;
+	}
+	.achievements-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+    .stats-section {
+        margin-top: 6rem;
+    }
+	
     .stats-section {
         padding: 3rem 1rem;
         gap: 1.5rem;
@@ -390,22 +403,12 @@
     .stats-section .stat-item p {
         font-size: 1.1em;
     }
+
+	.site-footer {
+		font-size: 1em;
+	}
 }
 
-@media screen and (max-width: 1024px) {
-	.hero-section h1 {
-		font-size: 2.8em;
-	}
-	.video-container {
-		margin: 0 1rem;
-	}
-	.achievements-grid {
-		grid-template-columns: repeat(2, 1fr);
-	}
-    .stats-section {
-        margin-top: 6rem;
-    }
-}
  @media screen and (max-width: 768px) {
 	header {
 		position: fixed;

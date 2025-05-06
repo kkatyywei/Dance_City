@@ -661,7 +661,6 @@ button, .direction-content, #scroll-top, .main-image, .text-block, .hamburger, .
     margin-top: 1.5rem;
 }
 
-
 /* Адаптация для планшетов (769px - 1024px) */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
     body {
@@ -745,7 +744,7 @@ button, .direction-content, #scroll-top, .main-image, .text-block, .hamburger, .
     }
 
     .main-image {
-        width: 92%;
+        width: 80%;
         height: auto;
         top: 16%;
         right: -1%;
@@ -765,8 +764,9 @@ button, .direction-content, #scroll-top, .main-image, .text-block, .hamburger, .
     }
     
     .info-section {
-        margin-top: -20em;
+        margin-top: -48%;
         padding: 2rem 0;
+        font-size: 0.8em;
     }
 
     .direction-content:hover img {
@@ -813,6 +813,9 @@ button, .direction-content, #scroll-top, .main-image, .text-block, .hamburger, .
         font-size: 82%;
     }
 
+    .site-footer {
+		font-size: 1em;
+	}
 }
 
 
@@ -993,7 +996,7 @@ button, .direction-content, #scroll-top, .main-image, .text-block, .hamburger, .
     }
 
     .info-section {
-        margin-top: -5rem;
+        margin-top: -11.5rem;
         padding: 0;
         height: fit-content;
         z-index: 500;
@@ -1074,7 +1077,8 @@ button, .direction-content, #scroll-top, .main-image, .text-block, .hamburger, .
         font-size: 1em;
     }
 
-    .site-footer {
+    
+	.site-footer {
         font-size: 0.95em;
         padding: 2rem 0.5rem 1.2rem 0.5rem;
     }
@@ -1095,6 +1099,22 @@ button, .direction-content, #scroll-top, .main-image, .text-block, .hamburger, .
     .footer-copy {
         font-size: 0.9em;
         margin-top: 1rem;
+    }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1024px)
+{
+    .main-image {
+        width: 85%;
+        height: auto;
+        top: 16%;
+        right: -1%;
+    }
+
+    .info-section {
+        margin-top: -30%;
+        padding: 2rem 0;
+        font-size: 0.8em;
     }
 }
 
@@ -1211,6 +1231,24 @@ button, .direction-content, #scroll-top, .main-image, .text-block, .hamburger, .
         padding: 8px 25px;
         font-size: 0.9em;
     }
+
+    .site-footer {
+		font-size: 0.85em;
+		padding: 1.2rem 0.2rem 0.7rem 0.2rem;
+	}
+	.site-footer .footer-nav,
+	.site-footer .footer-social {
+		gap: 0.7rem;
+		margin-bottom: 0.7rem;
+	}
+	.site-footer a {
+		font-size: 0.85em;
+		padding: 0.2em 0.4em;
+	}
+	.footer-copy {
+		font-size: 0.8em;
+		margin-top: 0.5rem;
+	}
 }
 
 /* Стили для десктопа (больше 1024px) */
@@ -1221,5 +1259,32 @@ button, .direction-content, #scroll-top, .main-image, .text-block, .hamburger, .
     
     .direction-content:hover .direction-text {
         opacity: 1;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 540px)
+{
+    h1{
+        font-size: 1.7em;
+    }
+    .main-image {
+        width: 7%5;
+        height: auto;
+        top: 17%;
+        right: -1%;
+    }
+
+    .text-block {
+        top: 22%;
+    }
+
+    .text-block h2{
+        font-size: 0.6em;
+    }
+
+    .info-section {
+        margin-top: -60%;
+        padding: 2rem 0;
+        font-size: 0.8em;
     }
 }

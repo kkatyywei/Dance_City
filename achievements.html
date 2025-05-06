@@ -86,7 +86,7 @@
                 <h3>Всемирная танцевальная Олимпиада</h3>
                 <p>Победители и бронзовые призеры<br>
                 Победители в семи дисциплинах и серебряные призеры в двух дисциплинах «Winter cup»</p>
-                <span class="year">2024</span>
+                <span class="year">2022</span>
             </div>
             <div class="achievement-card">
                 <div class="achievement-icon">👑</div>
@@ -157,6 +157,25 @@
                 behavior: 'smooth'
             });
         });
+
+        // Динамическая загрузка карточек достижений из achievements.json
+        fetch('achievements.json')
+          .then(response => response.json())
+          .then(data => {
+            const grid = document.querySelector('.achievements-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+            data.forEach(item => {
+              grid.innerHTML += `
+                <div class="achievement-card">
+                  <div class="achievement-icon"><i class="fas ${item.icon}"></i></div>
+                  <h3>${item.title}</h3>
+                  <p>${item.description}</p>
+                  <div class="year">${item.year}</div>
+                </div>
+              `;
+            });
+          });
     </script>
 
     <footer class="site-footer">
