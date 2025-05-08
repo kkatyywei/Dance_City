@@ -393,12 +393,21 @@ header {
 }
 
 
-/* Правая секция */
-.right-section {
+.social-icons {
     display: flex;
+    gap: 1.3rem;
     align-items: center;
-    gap: 2rem;
     margin-right: -8rem;
+}
+
+.social-icons img {
+    width: 2rem;
+    height: 2rem;
+    transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
 }
 
 .location-section {

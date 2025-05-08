@@ -183,8 +183,16 @@
 	 transform: translateY(-10px);
 }
  .achievements-grid .achievement-card .achievement-icon {
-	 font-size: 3em;
 	 margin-bottom: 1rem;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 font-size: 3em;
+}
+ .achievements-grid .achievement-card .achievement-icon img {
+	 width: 3em;
+	 height: 3em;
+	 object-fit: contain;
 }
  .achievements-grid .achievement-card h3 {
 	 color: #7c3882;
@@ -543,6 +551,9 @@
         font-size: 0.9em;
         margin-top: 1rem;
     }
+    .achievements-grid .achievement-card .achievement-icon {
+        font-size: 2.5em;
+    }
 }
  @media screen and (max-width: 480px) {
 	.hero-section {
@@ -636,4 +647,7 @@
 		font-size: 0.8em;
 		margin-top: 0.5rem;
 	}
+    .achievements-grid .achievement-card .achievement-icon {
+        font-size: 2em;
+    }
 } 

@@ -60,46 +60,24 @@
 
        
 
-        <section class="achievements-grid">
+        <section class="achievements-grid" id="achievements">
             <div class="achievement-card">
                 <div class="achievement-icon">🏆</div>
-                <h3>Чемпионат РБ по чирлидингу 2024</h3>
-                <p>Десятикратные победители в своих номинациях, серебряные призеры и дважды бронзовые призеры</p>
-                <span class="year">2024</span>
             </div>
             <div class="achievement-card">
                 <div class="achievement-icon">🌍</div>
-                <h3>Чемпионат Мира по чирлидингу</h3>
-                <p>Топ 10 сильнейших дуэтов Мира</p>
-                <span class="year">2021</span>
             </div>
             <div class="achievement-card">
                 <div class="achievement-icon">🎭</div>
-                <h3>Международные фестивали</h3>
-                <p>Лауреаты 1, 2, 3-степеней «Творчество без границ»<br>
-                Лауреаты первой степени и обладатели Гран При «BYFEST»<br>
-                Лауреаты первой степени «Славянский базар-2024»</p>
-                <span class="year">2024</span>
             </div>
             <div class="achievement-card">
                 <div class="achievement-icon">🥇</div>
-                <h3>Всемирная танцевальная Олимпиада</h3>
-                <p>Победители и бронзовые призеры<br>
-                Победители в семи дисциплинах и серебряные призеры в двух дисциплинах «Winter cup»</p>
-                <span class="year">2022</span>
             </div>
             <div class="achievement-card">
                 <div class="achievement-icon">👑</div>
-                <h3>Международный фестиваль-конкурс "Новые вершины"</h3>
-                <p>Обладатели трех гран-при</p>
-                <span class="year">2025</span>
             </div>
             <div class="achievement-card">
                 <div class="achievement-icon">🌟</div>
-                <h3>Чемпионат РБ и международный турнир</h3>
-                <p>Обладатели золотой награды на чемпионате РБ 2025<br>
-                Серебряные призеры международного турнира "Child and Youth Week"</p>
-                <span class="year">2025</span>
             </div>
         </section>
 
@@ -138,6 +116,34 @@
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const grid = document.getElementById("achievements");
+            const cards = grid.getElementsByClassName("achievement-card");
+            
+            // Загружаем данные из JSON-файла
+            const response = await fetch('achievements.json');
+            const achievementsItems = await response.json();
+
+            // Добавляем данные к существующим карточкам
+            achievementsItems.forEach((item, index) => {
+                if (index < cards.length) {
+                    const card = cards[index];
+                    const title = document.createElement('h3');
+                    title.textContent = item.title;
+                    
+                    const description = document.createElement('p');
+                    description.textContent = item.description;
+                    
+                    const year = document.createElement('div');
+                    year.className = 'year';
+                    year.textContent = item.year;
+                    
+                    card.appendChild(title);
+                    card.appendChild(description);
+                    card.appendChild(year);
+                }
+            });
+        });
         // Кнопка прокрутки вверх
         const scrollTopButton = document.getElementById('scroll-top');
         
@@ -157,25 +163,6 @@
                 behavior: 'smooth'
             });
         });
-
-        // Динамическая загрузка карточек достижений из achievements.json
-        fetch('achievements.json')
-          .then(response => response.json())
-          .then(data => {
-            const grid = document.querySelector('.achievements-grid');
-            if (!grid) return;
-            grid.innerHTML = '';
-            data.forEach(item => {
-              grid.innerHTML += `
-                <div class="achievement-card">
-                  <div class="achievement-icon"><i class="fas ${item.icon}"></i></div>
-                  <h3>${item.title}</h3>
-                  <p>${item.description}</p>
-                  <div class="year">${item.year}</div>
-                </div>
-              `;
-            });
-          });
     </script>
 
     <footer class="site-footer">
